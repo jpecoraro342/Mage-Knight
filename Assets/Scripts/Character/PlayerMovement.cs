@@ -9,9 +9,17 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed = 10f;
 
 	Rigidbody playerRigidbody;
+
+	Animator animator;
+
+	static string AnimatorSpeed = "Speed";
+	static string AnimatorTurn = "IsTurning";
 	
 	void Awake() {
 		playerRigidbody = GetComponent<Rigidbody>();
+		animator = GetComponent<Animator>();
+
+		animator.SetFloat(AnimatorSpeed, 0);
 	}
 
 	void FixedUpdate ()
@@ -37,13 +45,19 @@ public class PlayerMovement : MonoBehaviour {
 		playerRigidbody.MovePosition(transform.position);
 
 		playerRigidbody.velocity = transform.forward * vertical * speed;
+		animator.SetFloat(AnimatorSpeed, playerRigidbody.velocity.magnitude);
 	}
 	
 	void Rotate (float horizontal)
 	{
+		//The turning transition isn't very good right now, that's why it's commented out 
+
 		if (horizontal == 0) {
+			//animator.SetBool(AnimatorTurn, false);
 			return;
 		}
+
+		//animator.SetBool(AnimatorTurn, true);
 
 		//Current Rotation
 		Quaternion currentRotation = playerRigidbody.rotation;
