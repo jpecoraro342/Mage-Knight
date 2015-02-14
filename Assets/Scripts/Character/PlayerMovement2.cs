@@ -2,7 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerMovement2 : MonoBehaviour {
-	
+
+	public GUIText stats; 
+
 	public float turnSpeed = 20f;
 	public float turnSmoothing = 5f;
 
@@ -17,6 +19,10 @@ public class PlayerMovement2 : MonoBehaviour {
 	
 	static string AnimatorSpeed = "Speed";
 	static string AnimatorTurn = "IsTurning";
+
+	void start(){
+		stats.text = "Stats: ";
+	}
 	
 	void Awake() {
 		playerRigidbody = GetComponent<Rigidbody>();
@@ -37,6 +43,9 @@ public class PlayerMovement2 : MonoBehaviour {
 		Move(h, v);
 		if (Input.GetButton ("Jump"))
 						playerRigidbody.AddForce (new Vector3 (0, JumpForce, 0));
+
+
+		stats.text = "Stats: \n\th = " + h + "\n\tv = " + v + "\n\tAnimatorSpeed = " + (new Vector3(h, 0, v)).magnitude * speed;
 	}
 	
 	void Move (float horizontal, float vertical)
@@ -51,7 +60,8 @@ public class PlayerMovement2 : MonoBehaviour {
 			//playerRigidbody.AddForce(transform.forward * movement.magnitude * speed);
 			//playerRigidbody.AddForce(transform.forward  * speed);
 			playerRigidbody.velocity = transform.forward * movement.magnitude * speed;
-			animator.SetFloat(AnimatorSpeed, movement.magnitude, speedDampTime, Time.deltaTime);
+			animator.SetFloat(AnimatorSpeed, movement.magnitude * speed);
+
 		}
 		else
 			// Otherwise set the speed parameter to 0.
