@@ -6,7 +6,7 @@ using System.Collections;
 public class MainCameraFollow : MonoBehaviour 
 {
 	public Transform target;
-	public float smoothing = 5f;
+	public float smoothing = 10f;
 	
 	Vector3 offset;
 	
