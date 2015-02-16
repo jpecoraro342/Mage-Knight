@@ -35,7 +35,7 @@ public class SphereJumpScript : MonoBehaviour {
 		if(Input.GetButton ("Jump") && canHoldJump){
 			//Vector3 additionalForce = Vector3.up * additionalJumpForce;
 			sphereRigidBody.AddForce (additionalForce);
-			additionalForce *= 0.9f;
+			//additionalForce *= 0.9f;
 		}
 		stats.text = jumping.ToString()+ "\n" + canHoldJump.ToString();
 
