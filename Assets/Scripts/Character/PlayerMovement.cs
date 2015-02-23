@@ -10,17 +10,18 @@ public class PlayerMovement : MonoBehaviour {
 	CharacterController playerCharacterController;
 	Animator animator;
 	Vector3 moveDirection;
+	Vector3 movePosition;
 
 	Vector3 previousPosition;
 	Vector3 currentPosition;
+
+	Vector3 currentVelocity;
 
 	static string AnimatorSpeed = "Speed";
 	static string AnimatorTurn = "IsTurning";
 	static string AnimatorJump = "Jump";
 	
 	static string JumpButton = "Jump";
-
-	private Vector3 currentVelocity;
 
 	bool jumpPressed = false;
 
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour {
 		float v = Input.GetAxisRaw("Vertical");
 
 		moveDirection = Vector3.zero;
+		movePosition = Vector3.zero;
 		previousPosition = currentPosition;
 		currentPosition = transform.position;
 		
@@ -61,7 +63,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	/* Makes Adjustments to the Move Vector in the X and Y Direction */
 	void ApplyMovement (float horizontal, float vertical){
-		moveDirection += new Vector3(horizontal, 0, vertical);
+		movePosition = new Vector3(horizontal, 0 , vertical);
 	}
 
 	void ApplyJumping () 
@@ -76,21 +78,21 @@ public class PlayerMovement : MonoBehaviour {
 			Quaternion newRotation = Quaternion.LookRotation(moveDirection);
 			transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * turnSmoothing);
 		}
+	
+		playerCharacterController.Move(moveDirection * Time.deltaTime * speed * Mathf.Min(movePosition.magnitude, 1));
 
-		playerCharacterController.Move(moveDirection * Time.deltaTime * speed);
+		currentVelocity = (transform.position - currentPosition) / Time.deltaTime;
 	}
 
 	void ApplyAnimations() 
 	{
-		Vector3 velocity = (transform.position - currentPosition) / Time.deltaTime;
-		animator.SetFloat(AnimatorSpeed, velocity.magnitude);
+		animator.SetFloat(AnimatorSpeed, currentVelocity.magnitude);
 	}
 
 	/* Debugging */
 
 	void UpdateStats(float horizontal, float vertical) 
 	{
-		float currentSpeed = (new Vector3(horizontal, 0, vertical)).normalized.magnitude * speed;
-		stats.text = "Stats: \n\th = " + horizontal + "\n\tv = " + vertical + "\n\tSpeed = " + currentSpeed;
+		stats.text = "Stats: \n\th = " + horizontal + "\n\tv = " + vertical + "\n\tSpeed = " + currentVelocity.magnitude;
 	}
 }
