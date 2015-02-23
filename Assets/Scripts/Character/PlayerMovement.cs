@@ -6,84 +6,91 @@ public class PlayerMovement : MonoBehaviour {
 	public GUIText stats; 
 	public float turnSmoothing = 5f;
 	public float speed = 10f;
-	public float jumpForce = 50f;
-	
-	Rigidbody playerRigidbody;
+
+	CharacterController playerCharacterController;
 	Animator animator;
-	Vector3 movement;
-	bool jumping;
+	Vector3 moveDirection;
+
+	Vector3 previousPosition;
+	Vector3 currentPosition;
 
 	static string AnimatorSpeed = "Speed";
 	static string AnimatorTurn = "IsTurning";
-
-	void start(){
-		stats.text = "Stats: ";
-		movement = new Vector3 (0f, 0f, 0f);
-		jumping = false;
-	}
+	static string AnimatorJump = "Jump";
 	
+	static string JumpButton = "Jump";
+
+	private Vector3 currentVelocity;
+
+	bool jumpPressed = false;
+
 	void Awake() {
-		playerRigidbody = GetComponent<Rigidbody>();
+		playerCharacterController = GetComponent<CharacterController>();
 		animator = GetComponent<Animator>();
-		
+
 		animator.SetFloat(AnimatorSpeed, 0);
+		stats.text = "Stats: ";
 	}
 	
 	void FixedUpdate ()
 	{
-		//Change h to get axis/raw in order to handle/not joystick sensitivity
-		//float h = Input.GetAxisRaw("Horizontal");
-		float h = Input.GetAxis("Horizontal");
-		float v = Input.GetAxis("Vertical");
+		float h = Input.GetAxisRaw("Horizontal");
+		float v = Input.GetAxisRaw("Vertical");
+
+		moveDirection = Vector3.zero;
+		previousPosition = currentPosition;
+		currentPosition = transform.position;
 		
-		Rotate (h, v);
-		Move(h, v);
+		ApplyRotation (h, v);
+		ApplyMovement(h, v);
+		ApplyJumping ();
 
-		stats.text = "Stats: \n\th = " + h + "\n\tv = " + v + "\n\tAnimatorSpeed = " + (new Vector3(h, 0, v)).normalized.magnitude * speed;
-	}
-	
-	void Move (float horizontal, float vertical){
+		PerformMovement();
 
-		movement.Set(horizontal, 0, vertical);
-		
-		if(horizontal != 0f || vertical != 0f)
-		{
-			// ... set the players rotation and set the speed parameter to 5.5f.
-			Rotate(horizontal, vertical);
+		ApplyAnimations();
 
-			//playerRigidbody.velocity = transform.forward * movement.normalized.magnitude * speed;
-			playerRigidbody.position = playerRigidbody.position + (movement * movement.normalized.magnitude * speed * Time.deltaTime);
-			animator.SetFloat(AnimatorSpeed, movement.magnitude * speed);
-		}
-		else
-			// Otherwise set the speed parameter to 0.
-			animator.SetFloat(AnimatorSpeed, 0);
-
+		UpdateStats(h, v);
 	}
 
-	void Rotate (float horizontal, float vertical)
+	void ApplyRotation (float horizontal, float vertical)
 	{
-		// Create a new vector of the horizontal and vertical inputs.
-		Vector3 targetDirection = new Vector3(horizontal, 0f, vertical);
-		
-		// Create a rotation based on this new vector assuming that up is the global y axis.
-		Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
-		
-		// Create a rotation that is an increment closer to the target rotation from the player's rotation.
-		Quaternion newRotation = Quaternion.Lerp(playerRigidbody.rotation, targetRotation, turnSmoothing * Time.deltaTime);
-		
-		// Change the players rotation to this new rotation.
-		playerRigidbody.MoveRotation(newRotation);
+		Vector3 targetDirection = horizontal * Vector3.right + vertical * Vector3.forward;	
+
+		moveDirection = Vector3.RotateTowards(moveDirection, targetDirection, 200 * Mathf.Deg2Rad * Time.deltaTime, 1000);
 	}
 
-	void Jump () 
+	/* Makes Adjustments to the Move Vector in the X and Y Direction */
+	void ApplyMovement (float horizontal, float vertical){
+		moveDirection += new Vector3(horizontal, 0, vertical);
+	}
+
+	void ApplyJumping () 
 	{
-		if (!jumping) {
-			if(Input.GetButtonDown ("Jump")){
-				jumping = true;
-				playerRigidbody.AddForce (Vector3.up * jumpForce, ForceMode.Impulse);
-				//playerRigidbody.velocity += jumpForce * Vector3.up;
-			}
+
+	}
+
+	void PerformMovement()
+	{
+		moveDirection = moveDirection.normalized;
+		if (moveDirection != Vector3.zero) {
+			Quaternion newRotation = Quaternion.LookRotation(moveDirection);
+			transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * turnSmoothing);
 		}
+
+		playerCharacterController.Move(moveDirection * Time.deltaTime * speed);
+	}
+
+	void ApplyAnimations() 
+	{
+		Vector3 velocity = (transform.position - currentPosition) / Time.deltaTime;
+		animator.SetFloat(AnimatorSpeed, velocity.magnitude);
+	}
+
+	/* Debugging */
+
+	void UpdateStats(float horizontal, float vertical) 
+	{
+		float currentSpeed = (new Vector3(horizontal, 0, vertical)).normalized.magnitude * speed;
+		stats.text = "Stats: \n\th = " + horizontal + "\n\tv = " + vertical + "\n\tSpeed = " + currentSpeed;
 	}
 }
