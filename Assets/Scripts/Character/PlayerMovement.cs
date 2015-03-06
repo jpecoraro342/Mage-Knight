@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 	public GUIText stats; 
 	public float turnSmoothing = 5f;
 	public float speed = 10f;
+	public float jumpSpeed = 10f;
 
 	CharacterController playerCharacterController;
 	Animator animator;
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 	static string JumpButton = "Jump";
 
 	bool jumpPressed = false;
+	bool isJumping = false;
 
 	void Awake() {
 		playerCharacterController = GetComponent<CharacterController>();
@@ -68,7 +70,11 @@ public class PlayerMovement : MonoBehaviour {
 
 	void ApplyJumping () 
 	{
+		if (Input.GetButtonDown ("Jump")){
 
+			playerCharacterController.velocity.Set(playerCharacterController.velocity.x, jumpSpeed, playerCharacterController.velocity.z);
+			isJumping = true;
+		}
 	}
 
 	void PerformMovement()
@@ -81,12 +87,14 @@ public class PlayerMovement : MonoBehaviour {
 	
 		playerCharacterController.Move(moveDirection * Time.deltaTime * speed * Mathf.Min(movePosition.magnitude, 1));
 
-		currentVelocity = (transform.position - currentPosition) / Time.deltaTime;
+		currentVelocity = playerCharacterController.velocity;
+		//currentVelocity = (transform.position - currentPosition) / Time.deltaTime; //dividing by Time.detlaTime introduces underflow-rounding-error!
 	}
 
 	void ApplyAnimations() 
 	{
 		animator.SetFloat(AnimatorSpeed, currentVelocity.magnitude);
+
 	}
 
 	/* Debugging */
