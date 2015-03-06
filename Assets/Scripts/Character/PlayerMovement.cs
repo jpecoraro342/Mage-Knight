@@ -8,10 +8,12 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed = 10f;
 	public float jumpSpeed = 10f;
 
-	CharacterController playerCharacterController;
+	//CharacterController playerCharacterController;
+	Rigidbody playerRigidBody;
 	Animator animator;
 	Vector3 moveDirection;
 	Vector3 movePosition;
+	Vector3 targetDirection;
 
 	Vector3 previousPosition;
 	Vector3 currentPosition;
@@ -28,7 +30,9 @@ public class PlayerMovement : MonoBehaviour {
 	bool isJumping = false;
 
 	void Awake() {
-		playerCharacterController = GetComponent<CharacterController>();
+		//playerCharacterController = GetComponent<CharacterController>();
+		Vector3 targetDirection = new Vector3 ();
+		playerRigidBody = GetComponent<Rigidbody> ();
 		animator = GetComponent<Animator>();
 
 		animator.SetFloat(AnimatorSpeed, 0);
@@ -44,12 +48,17 @@ public class PlayerMovement : MonoBehaviour {
 		movePosition = Vector3.zero;
 		previousPosition = currentPosition;
 		currentPosition = transform.position;
-		
-		ApplyRotation (h, v);
+
+		if (h != 0 || v != 0) {
+			ApplyRotation (h, v);
+		}
+
 		ApplyMovement(h, v);
+	
+
 		ApplyJumping ();
 
-		PerformMovement();
+		//PerformMovement();
 
 		ApplyAnimations();
 
@@ -58,26 +67,36 @@ public class PlayerMovement : MonoBehaviour {
 
 	void ApplyRotation (float horizontal, float vertical)
 	{
-		Vector3 targetDirection = horizontal * Vector3.right + vertical * Vector3.forward;	
+		targetDirection.Set(horizontal, 0f, vertical);
+		Quaternion currentRotation = playerRigidBody.rotation;
+		Quaternion targetRotation = Quaternion.LookRotation (targetDirection, Vector3.up);
+		Quaternion newRotation = Quaternion.Lerp (playerRigidBody.rotation, targetRotation, 10f * Time.fixedDeltaTime);
+		playerRigidBody.MoveRotation (newRotation);
 
-		moveDirection = Vector3.RotateTowards(moveDirection, targetDirection, 200 * Mathf.Deg2Rad * Time.deltaTime, 1000);
+		//Vector3 targetDirection = horizontal * Vector3.right + vertical * Vector3.forward;	
+		//moveDirection = Vector3.RotateTowards(moveDirection, targetDirection, 200 * Mathf.Deg2Rad * Time.deltaTime, 1000);
 	}
 
 	/* Makes Adjustments to the Move Vector in the X and Y Direction */
 	void ApplyMovement (float horizontal, float vertical){
-		movePosition = new Vector3(horizontal, 0 , vertical);
+		targetDirection.Set(horizontal, 0f, vertical);
+
+		playerRigidBody.AddForce(targetDirection.normalized * speed);
+		if (new Vector3 (playerRigidBody.velocity.x, 0f, playerRigidBody.velocity.z).magnitude > 10f) {
+			playerRigidBody.velocity = playerRigidBody.velocity.normalized * speed;
+		}
 	}
 
 	void ApplyJumping () 
 	{
 		if (Input.GetButtonDown ("Jump")){
 
-			playerCharacterController.velocity.Set(playerCharacterController.velocity.x, jumpSpeed, playerCharacterController.velocity.z);
+			playerRigidBody.velocity.Set(playerRigidBody.velocity.x, jumpSpeed, playerRigidBody.velocity.z);
 			isJumping = true;
 		}
 	}
 
-	void PerformMovement()
+	/*void PerformMovement()
 	{
 		moveDirection = moveDirection.normalized;
 		if (moveDirection != Vector3.zero) {
@@ -85,15 +104,15 @@ public class PlayerMovement : MonoBehaviour {
 			transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * turnSmoothing);
 		}
 	
-		playerCharacterController.Move(moveDirection * Time.deltaTime * speed * Mathf.Min(movePosition.magnitude, 1));
+		playerRigidBody.MovePosition(moveDirection * Time.deltaTime * speed * Mathf.Min(movePosition.magnitude, 1));
 
-		currentVelocity = playerCharacterController.velocity;
+		currentVelocity = playerRigidBody.velocity;
 		//currentVelocity = (transform.position - currentPosition) / Time.deltaTime; //dividing by Time.detlaTime introduces underflow-rounding-error!
-	}
+	}*/
 
 	void ApplyAnimations() 
 	{
-		animator.SetFloat(AnimatorSpeed, currentVelocity.magnitude);
+		animator.SetFloat(AnimatorSpeed, playerRigidBody.velocity.magnitude);
 
 	}
 
@@ -101,6 +120,6 @@ public class PlayerMovement : MonoBehaviour {
 
 	void UpdateStats(float horizontal, float vertical) 
 	{
-		stats.text = "Stats: \n\th = " + horizontal + "\n\tv = " + vertical + "\n\tSpeed = " + currentVelocity.magnitude;
+		stats.text = "Stats: \n\th = " + horizontal + "\n\tv = " + vertical + "\n\tSpeed = " + currentVelocity.magnitude + "\n\tRigidBody.velocity: " + playerRigidBody.velocity;
 	}
 }

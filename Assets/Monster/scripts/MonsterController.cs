@@ -10,19 +10,25 @@ public class MonsterController : MonoBehaviour {
 
 	Animator animator;
 	Rigidbody rigidbody;
+	NavMeshAgent navmeshAgent;
+	GameObject player;
 
 
 	void Awake(){
 		animator = GetComponent<Animator> ();
-		animator.SetBool ("grounded", true);
+		animator.SetBool ("grounded", grounded);
 		animator.SetFloat ("speed", 0f);
+		navmeshAgent = GetComponent<NavMeshAgent> ();
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 	void Start () {
-	
+		navmeshAgent.enabled = true;
+		navmeshAgent.destination = player.transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		navmeshAgent.destination = player.transform.position;
+		animator.SetFloat ("speed", this.navmeshAgent.speed);
 	}
 }
