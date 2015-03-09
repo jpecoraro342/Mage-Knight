@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed = 10f;
 	public float jumpSpeed = 10f;
 
+	float gravity = 19.8f;
+
 	//CharacterController playerCharacterController;
 	Rigidbody playerRigidBody;
 	Animator animator;
@@ -17,7 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	Vector3 previousPosition;
 	Vector3 currentPosition;
-
+	Vector3 targetVelocity;
 	Vector3 currentVelocity;
 
 	static string AnimatorSpeed = "Speed";
@@ -27,11 +29,11 @@ public class PlayerMovement : MonoBehaviour {
 	static string JumpButton = "Jump";
 
 	bool jumpPressed = false;
-	bool isJumping = false;
+	bool canJump = true;
+	bool grounded = true;
 
 	void Awake() {
 		//playerCharacterController = GetComponent<CharacterController>();
-		Vector3 targetDirection = new Vector3 ();
 		playerRigidBody = GetComponent<Rigidbody> ();
 		animator = GetComponent<Animator>();
 
@@ -49,14 +51,17 @@ public class PlayerMovement : MonoBehaviour {
 		previousPosition = currentPosition;
 		currentPosition = transform.position;
 
+		targetDirection.Set (h, 0f, v);
+		targetVelocity = targetDirection * speed;
+
 		if (h != 0 || v != 0) {
-			ApplyRotation (h, v);
+			ApplyRotation ();
 		}
 
-		ApplyMovement(h, v);
+		ApplyMovement();
 	
 
-		ApplyJumping ();
+		//ApplyJumping ();
 
 		//PerformMovement();
 
@@ -65,9 +70,9 @@ public class PlayerMovement : MonoBehaviour {
 		UpdateStats(h, v);
 	}
 
-	void ApplyRotation (float horizontal, float vertical)
+	void ApplyRotation ()
 	{
-		targetDirection.Set(horizontal, 0f, vertical);
+
 		Quaternion currentRotation = playerRigidBody.rotation;
 		Quaternion targetRotation = Quaternion.LookRotation (targetDirection, Vector3.up);
 		Quaternion newRotation = Quaternion.Lerp (playerRigidBody.rotation, targetRotation, 10f * Time.fixedDeltaTime);
@@ -78,23 +83,66 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	/* Makes Adjustments to the Move Vector in the X and Y Direction */
-	void ApplyMovement (float horizontal, float vertical){
-		targetDirection.Set(horizontal, 0f, vertical);
+	void ApplyMovement (){
+		if (grounded) {
+			Vector3 velocity = playerRigidBody.velocity;
+			Vector3 velocityChange = targetVelocity - velocity;
+			
+			velocityChange.x = Mathf.Clamp(velocityChange.x, -speed, speed);
+			velocityChange.z = Mathf.Clamp(velocityChange.z, -speed, speed);
+			velocityChange.y = 0;
+			
+			playerRigidBody.AddForce(velocityChange, ForceMode.VelocityChange);
+			//playerRigidBody.velocity = velocityChange;
 
-		playerRigidBody.AddForce(targetDirection.normalized * speed);
-		if (new Vector3 (playerRigidBody.velocity.x, 0f, playerRigidBody.velocity.z).magnitude > 10f) {
-			playerRigidBody.velocity = playerRigidBody.velocity.normalized * speed;
+			if (canJump && Input.GetButtonDown("Jump")) {
+				playerRigidBody.velocity = new Vector3(velocity.x, CalculateJumpVerticalSpeed(), velocity.z);
+				grounded = false;
+				animator.SetBool("Jump", true);
+				canJump = false;
+			}
 		}
+
+		else{
+				Vector3 velocity = playerRigidBody.velocity;
+				Vector3 velocityChange = targetVelocity - velocity;
+				
+				velocityChange.x = Mathf.Clamp(velocityChange.x, -speed, speed);
+				velocityChange.z = Mathf.Clamp(velocityChange.z, -speed, speed);
+				velocityChange.y = 0;
+
+				velocityChange *= 0.1f;
+
+				playerRigidBody.AddForce(velocityChange, ForceMode.VelocityChange);
+				
+		}
+		playerRigidBody.AddForce(new Vector3 (0, -gravity * playerRigidBody.mass, 0));
+
+		//if (Input.GetButtonUp ("Jump")) canJump = true;
+		grounded = false;
+
+
+
+		//playerRigidBody.AddForce(targetDirection.normalized * speed);
+		/*if (new Vector3 (playerRigidBody.velocity.x, 0f, playerRigidBody.velocity.z).magnitude > 10f) {
+			playerRigidBody.velocity = playerRigidBody.velocity.normalized * speed;
+		}*/
 	}
 
-	void ApplyJumping () 
+	void OnCollisionStay(){
+		grounded = true;
+		animator.SetBool ("Jump", false);
+		if (Input.GetButtonUp ("Jump")) canJump = true;
+	}
+
+	/*void ApplyJumping () 
 	{
 		if (Input.GetButtonDown ("Jump")){
 
 			playerRigidBody.velocity.Set(playerRigidBody.velocity.x, jumpSpeed, playerRigidBody.velocity.z);
-			isJumping = true;
+			canJump = false;
 		}
-	}
+	}*/
 
 	/*void PerformMovement()
 	{
@@ -110,16 +158,24 @@ public class PlayerMovement : MonoBehaviour {
 		//currentVelocity = (transform.position - currentPosition) / Time.deltaTime; //dividing by Time.detlaTime introduces underflow-rounding-error!
 	}*/
 
+	float CalculateJumpVerticalSpeed () {
+		// From the jump height and gravity we deduce the upwards speed 
+		// for the character to reach at the apex.
+		return Mathf.Sqrt(2 * jumpSpeed * gravity);
+	}
+
 	void ApplyAnimations() 
 	{
 		animator.SetFloat(AnimatorSpeed, playerRigidBody.velocity.magnitude);
 
-	}
+	}   
+
 
 	/* Debugging */
 
 	void UpdateStats(float horizontal, float vertical) 
 	{
-		stats.text = "Stats: \n\th = " + horizontal + "\n\tv = " + vertical + "\n\tSpeed = " + currentVelocity.magnitude + "\n\tRigidBody.velocity: " + playerRigidBody.velocity;
+		stats.text = "Stats: \n\th = " + horizontal + "\n\tv = " + vertical + "\n\tSpeed = " + currentVelocity.magnitude + "\n\tRigidBody.velocity: " + playerRigidBody.velocity +
+			"\n\tGrounded: " + grounded + "\n\tCanJump: " + canJump;
 	}
 }
