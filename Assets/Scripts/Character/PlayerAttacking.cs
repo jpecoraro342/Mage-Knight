@@ -13,18 +13,33 @@ using System.Collections;
  */
 public class PlayerAttacking : MonoBehaviour {
 
-	static string AttackButton1 = "Attack1";
-	static string AttackButton2 = "Attack2";
-	static string AttackButton3 = "Attack3";
-	static string AttackButton4 = "Attack4";
+	Animator animator;
 
-	static string AlternateAttackButton = "AltAttack";
+	static string Attack1 = "Attack1";
+	static string Attack2 = "Attack2";
+	static string Attack3 = "Attack3";
+	static string Attack4 = "Attack4";
+
+	static string AlternateAttac = "AltAttack";
+
+	bool isAttacking = false;
 	
 	void Awake () {
-	
+		animator = GetComponent<Animator>();
 	}
 
 	void Update () {
-	
+		if (Input.GetButton(Attack1) && !isAttacking) {
+			Debug.Log("Attack!");
+			isAttacking = true;
+			animator.SetTrigger(Attack1);
+			StartCoroutine(StartAttacking(.6f));
+		}
+	}
+
+	IEnumerator StartAttacking(float attackTime) {
+		yield return null;
+		yield return new WaitForSeconds(attackTime);
+		isAttacking = false;
 	}
 }
