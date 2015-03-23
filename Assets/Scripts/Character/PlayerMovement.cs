@@ -4,18 +4,22 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
 	public GUIText stats; 
-	public float turnSmoothing = 5f;
+	public float turnSmoothing = 10f;
 	public float speed = 10f;
+	public float targetJumpHeight = 3f;
 
 	CharacterController playerCharacterController;
 	Animator animator;
-	Vector3 moveDirection;
-	Vector3 movePosition;
+	Vector3 horizontalMoveDirection;
+	Vector3 horizontalMovePosition;
 
 	Vector3 previousPosition;
 	Vector3 currentPosition;
 
-	Vector3 currentVelocity;
+	Vector3 horizontalVelocity;
+	float verticalVelocity;
+
+	float gravity = 30f;
 
 	static string AnimatorSpeed = "Speed";
 	static string AnimatorTurn = "IsTurning";
@@ -23,7 +27,7 @@ public class PlayerMovement : MonoBehaviour {
 	
 	static string JumpButton = "Jump";
 
-	bool jumpPressed = false;
+	bool canJump = true;
 
 	void Awake() {
 		playerCharacterController = GetComponent<CharacterController>();
@@ -38,17 +42,18 @@ public class PlayerMovement : MonoBehaviour {
 		float h = Input.GetAxisRaw("Horizontal");
 		float v = Input.GetAxisRaw("Vertical");
 
-		moveDirection = Vector3.zero;
-		movePosition = Vector3.zero;
+		horizontalMoveDirection = Vector3.zero;
+		horizontalMovePosition = Vector3.zero;
 		previousPosition = currentPosition;
 		currentPosition = transform.position;
 		
 		ApplyRotation (h, v);
 		ApplyMovement(h, v);
 		ApplyJumping ();
-
+		ApplyGravity();
 		PerformMovement();
 
+		ValuesAndStats();
 		ApplyAnimations();
 
 		UpdateStats(h, v);
@@ -58,41 +63,69 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		Vector3 targetDirection = horizontal * Vector3.right + vertical * Vector3.forward;	
 
-		moveDirection = Vector3.RotateTowards(moveDirection, targetDirection, 200 * Mathf.Deg2Rad * Time.deltaTime, 1000);
+		horizontalMoveDirection = Vector3.RotateTowards(horizontalMoveDirection, targetDirection, 200 * Mathf.Deg2Rad * Time.deltaTime, 1000);
 	}
 
 	/* Makes Adjustments to the Move Vector in the X and Y Direction */
 	void ApplyMovement (float horizontal, float vertical){
-		movePosition = new Vector3(horizontal, 0 , vertical);
+		horizontalMovePosition = new Vector3(horizontal, 0 , vertical);
 	}
 
 	void ApplyJumping () 
 	{
+		if (Input.GetButton(JumpButton) && canJump) {
+			verticalVelocity = Mathf.Sqrt(2 * targetJumpHeight * gravity);
+			animator.SetTrigger(AnimatorJump);
+			canJump = false;
+		}
+		else {
 
+		}
+	}
+
+	void ApplyGravity ()
+	{
+		verticalVelocity -= gravity * Time.deltaTime;
 	}
 
 	void PerformMovement()
 	{
-		moveDirection = moveDirection.normalized;
-		if (moveDirection != Vector3.zero) {
-			Quaternion newRotation = Quaternion.LookRotation(moveDirection);
+		horizontalMoveDirection = horizontalMoveDirection.normalized;
+		if (horizontalMoveDirection != Vector3.zero) {
+			Quaternion newRotation = Quaternion.LookRotation(horizontalMoveDirection);
 			transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * turnSmoothing);
 		}
-	
-		playerCharacterController.Move(moveDirection * Time.deltaTime * speed * Mathf.Min(movePosition.magnitude, 1));
 
-		currentVelocity = (transform.position - currentPosition) / Time.deltaTime;
+		horizontalMoveDirection = horizontalMoveDirection * Time.deltaTime * speed * Mathf.Min(horizontalMovePosition.magnitude, 1);
+		horizontalMoveDirection.y = verticalVelocity * Time.deltaTime;
+		playerCharacterController.Move(horizontalMoveDirection);
+
+	}
+
+	void ValuesAndStats()
+	{
+		Vector3 positionDifference =  transform.position - currentPosition;
+
+		float verticalDifference = positionDifference.y;
+
+		if (verticalDifference == 0) {
+			canJump = true;
+			verticalVelocity = 0;
+		}
+
+		horizontalVelocity = (positionDifference / Time.deltaTime);
+		horizontalVelocity.y = 0;
 	}
 
 	void ApplyAnimations() 
 	{
-		animator.SetFloat(AnimatorSpeed, currentVelocity.magnitude);
+		animator.SetFloat(AnimatorSpeed, horizontalVelocity.magnitude);
 	}
 
 	/* Debugging */
 
 	void UpdateStats(float horizontal, float vertical) 
 	{
-		stats.text = "Stats: \n\th = " + horizontal + "\n\tv = " + vertical + "\n\tSpeed = " + currentVelocity.magnitude;
+		stats.text = "Stats: \n\th = " + horizontal + "\n\tv = " + vertical + "\n\tMovement = " + horizontalMoveDirection + "\n\tHorizontal Speed = " + horizontalVelocity.magnitude + "\n\tVertical Speed = " + verticalVelocity;
 	}
 }
