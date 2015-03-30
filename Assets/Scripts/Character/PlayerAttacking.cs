@@ -17,7 +17,11 @@ public class PlayerAttacking : MonoBehaviour {
 
 	public CapsuleCollider swordCollider;
 
-	float Attack1Time = .6f;
+	float Attack1Time = .8f;
+	float Attack1AnimationTime = 1.05f;
+
+	float MageAttack1Time = .8f;
+	float MageAttack1AnimationTime = 1f;
 
 	static string Attack1 = "Attack1";
 	static string Attack2 = "Attack2";
@@ -31,24 +35,40 @@ public class PlayerAttacking : MonoBehaviour {
 
 	bool altAttackPressed = false;
 
+	bool meleeAttacksActive = true;
+	bool mageAttacksActive = false;
+
+	int BaseLayerIndex = 0;
+	int MeleeAttackLayerIndex = 1;
+	int MageAttackLayerIndex = 2;
+
 	void Awake () {
 		animator = GetComponent<Animator>();
 	}
 
 	void Update () {
 		if (Input.GetButton(AlternateAttack) && !altAttackPressed) {
-
+			altAttackPressed = true;
+			meleeAttacksActive = !meleeAttacksActive;
+			mageAttacksActive = !mageAttacksActive;
 		}
 		else if (!Input.GetButton(AlternateAttack)) {
-
+			altAttackPressed = false;
 		}
 
 
 		if (Input.GetButton(Attack1) && !isAttacking && canAttack) {
-			Debug.Log("Attack!");
 			isAttacking = true;
 			animator.SetTrigger(Attack1);
-			StartCoroutine(StartAttacking(Attack1Time));
+
+			if (meleeAttacksActive) {
+				Debug.Log("Melee Attack!");
+				StartCoroutine(StartMeleeAttack(Attack1Time, Attack1AnimationTime));
+			}
+			else {
+				Debug.Log("Mage Attack!");
+				StartCoroutine(StartMageAttack1());
+			}
 		}
 		else if (!Input.GetButton(Attack1)) {
 			canAttack = true;
@@ -59,11 +79,24 @@ public class PlayerAttacking : MonoBehaviour {
 		Debug.Log("Deal Damage");
 	}
 
-	IEnumerator StartAttacking(float attackTime) {
+	IEnumerator StartMeleeAttack(float attackTime, float animationTime) {
 		yield return null;
+		animator.SetLayerWeight(MeleeAttackLayerIndex, 1);
 		swordCollider.enabled = true;
 		yield return new WaitForSeconds(attackTime);
 		swordCollider.enabled = false;
+
+		yield return new WaitForSeconds(animationTime - attackTime);
+		animator.SetLayerWeight(MeleeAttackLayerIndex, 0);
+
+		isAttacking = false;
+	}
+
+	IEnumerator StartMageAttack1() {
+		yield return null;
+
+		yield return new WaitForSeconds(MageAttack1Time);
+
 		isAttacking = false;
 	}
 }
