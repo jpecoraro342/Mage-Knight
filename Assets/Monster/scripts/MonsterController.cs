@@ -16,6 +16,8 @@ public class MonsterController : MonoBehaviour {
 	GameObject player;
 	GUIText statsText;
 
+	float atkTime = 0f;
+
 	OffMeshLinkData jumpLink;
 
 	bool traversingLink = false;
@@ -58,9 +60,14 @@ public class MonsterController : MonoBehaviour {
 
 	void checkAttack(){
 		//animator.SetBool ("grabweapon", true);
-		if ((player.transform.position - this.transform.position).magnitude < 0.5) {
-			animator.SetTrigger ("attacking");
-
+		if ((player.transform.position - this.transform.position).magnitude < 3) {
+			if ((Time.time - atkTime) > 1){
+				animator.SetFloat ("random", Random.Range(0, 4));
+				atkTime = Time.time;
+				animator.SetTrigger ("attacking");
+				//if weapon hits player: player.takedamage
+			}
+			//http://answers.unity3d.com/questions/750785/mecanim-trigger-event-at-end-of-animation-state.html
 		}
 	}
 
