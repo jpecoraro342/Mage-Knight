@@ -4,7 +4,9 @@ using System.Collections;
 public class MageProjectileAttack : MonoBehaviour {
 
 	public float speed = 2f;
-	public float projectileLife = 4f;
+	public float projectileLife = 3f;
+
+	public GameObject damageObject;
 
 	void Start () {
 		StartCoroutine(DelayDestroy(projectileLife));
@@ -16,9 +18,19 @@ public class MageProjectileAttack : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.tag == "Enemy") {
+		GameObject otherobj = other.gameObject;
+		if (otherobj.tag == "Enemy") {
 			Debug.Log("Deal Damage");
-			//Start a fire particle system on the enemy to show damage dealt to them. 
+
+			Vector3 damageSystemPosition = Vector3.zero;
+			damageSystemPosition.y += .5f;
+
+			GameObject damageSystem = (GameObject)Instantiate (damageObject);
+			damageSystem.transform.parent = otherobj.transform;
+
+			damageSystem.transform.localPosition = damageSystemPosition;
+			damageSystem.transform.localScale = new Vector3(1, 1, 1);
+
 			//Deal the damage
 
 			//Destroy or keep going?
