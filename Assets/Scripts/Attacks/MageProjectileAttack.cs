@@ -4,7 +4,7 @@ using System.Collections;
 public class MageProjectileAttack : MonoBehaviour {
 
 	public float speed = 2f;
-	public float projectileLife = 3f;
+	public float projectileLife = 1f;
 
 	public GameObject damageObject;
 

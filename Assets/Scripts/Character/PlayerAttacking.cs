@@ -29,15 +29,15 @@ public class PlayerAttacking : MonoBehaviour {
 
 	string[] attackButtons = new string[4] { "Attack1", "Attack2", "Attack3", "Attack4" }; 
 	bool[] meleeAttacksEnabled = new bool[4] { true, false, false, false }; 
-	bool[] mageAttacksEnabled = new bool[4] { true, false, false, false };
+	bool[] mageAttacksEnabled = new bool[4] { true, true, false, false };
 
 	float[] meleeAttackTime = new float[4] { .8f, 0f, 0f, 0f };
-	float[] mageAttackTime = new float[4] { .8f, 0f, 0f, 0f };
+	float[] mageAttackTime = new float[4] { .8f, .8f, 0f, 0f };
 
 	float[] meleeAnimationTime = new float[4] { 1.05f, 0f, 0f, 0f };
-	float[] mageAnimationTime = new float[4] { 1f, 0f, 0f, 0f };
+	float[] mageAnimationTime = new float[4] { 1f, 1f, 0f, 0f };
 
-	float[] mageAttackDistance = new float[4] { 20f, 0f, 0f, 0f };
+	float[] mageAttackDistance = new float[4] { 20f, 20f, 0f, 0f };
 	public GameObject[] mageAttackParticle = new GameObject[4];
 
 	static string alternateAttack = "AltAttack";
@@ -191,20 +191,6 @@ public class PlayerAttacking : MonoBehaviour {
 
 		RaycastHit hit;
 		Vector3 attackTransform = transform.position;
-		bool targetFound = false;
-
-
-//		int xoffset = -2;
-//		for (int i = 0; i < 5; i++) {
-//			Vector3 raycastVect = transform.position;
-//			raycastVect.x += xoffset;
-//			if (Physics.Raycast(raycastVect, transform.forward, out hit, mageAttack1Distance)) {
-//				Debug.DrawRay(transform.position, hit.point, Color.green, 2);
-//				attackTransform = hit.point;
-//				break;
-//			}
-//		}
-
 		attackTransform.y = transform.position.y + .5f;
 
 		GameObject attack = (GameObject)Instantiate (mageAttackParticle[index], attackTransform, Quaternion.identity);

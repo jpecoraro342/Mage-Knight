@@ -3566,6 +3566,10 @@ Prefab:
       propertyPath: mageAttackParticle.Array.data[0]
       value: 
       objectReference: {fileID: 148114, guid: 2400bfa87101a4ba596752f73ea00547, type: 2}
+    - target: {fileID: 11409142, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
+      propertyPath: mageAttackParticle.Array.data[1]
+      value: 
+      objectReference: {fileID: 168270, guid: 9d5cc4f36165346e9b68d575c90d288b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
   m_IsPrefabParent: 0
@@ -6486,6 +6490,10 @@ Prefab:
     - target: {fileID: 400010, guid: 4d0391f078db24fac9f5cba3075f9f5d, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: 4d0391f078db24fac9f5cba3075f9f5d, type: 2}
+      propertyPath: lengthInSec
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d0391f078db24fac9f5cba3075f9f5d, type: 2}
