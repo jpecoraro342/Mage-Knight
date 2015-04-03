@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 461642}
@@ -167,7 +167,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.01724625, y: -1.09496117, z: 3.95123291}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400248}
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTime: 1
   projectileLife: 1.5
-  damageObject: {fileID: 0}
+  damageObject: {fileID: 186518, guid: 6c282d697d92f458ca11f0c4493aebf0, type: 2}
   attackSystem: {fileID: 19877496}
 --- !u!114 &11432602
 MonoBehaviour:
@@ -2501,7 +2501,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 2
+      scalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:

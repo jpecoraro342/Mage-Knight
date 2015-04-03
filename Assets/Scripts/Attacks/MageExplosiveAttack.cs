@@ -35,6 +35,14 @@ public class MageExplosiveAttack : MonoBehaviour {
 		foreach (GameObject enemy in enemyTargetList) {
 			//deal damge
 			Debug.Log("Deal Damage");
+			Vector3 damageSystemPosition = Vector3.zero;
+			damageSystemPosition.y += .5f;
+			
+			GameObject damageSystem = (GameObject)Instantiate (damageObject);
+			damageSystem.transform.parent = enemy.transform;
+			
+			damageSystem.transform.localPosition = damageSystemPosition;
+			damageSystem.transform.localScale = new Vector3(1, 1, 1);
 		}
 	}
 	

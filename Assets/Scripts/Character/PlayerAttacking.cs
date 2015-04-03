@@ -28,16 +28,16 @@ public class PlayerAttacking : MonoBehaviour {
 	static string Attack4 = "Attack4";
 
 	string[] attackButtons = new string[4] { "Attack1", "Attack2", "Attack3", "Attack4" }; 
-	bool[] meleeAttacksEnabled = new bool[4] { true, false, false, false }; 
-	bool[] mageAttacksEnabled = new bool[4] { true, true, false, false };
+	bool[] meleeAttacksEnabled = new bool[4] { true, true, true, false }; 
+	bool[] mageAttacksEnabled = new bool[4] { true, true, true, false };
 
-	float[] meleeAttackTime = new float[4] { .8f, 0f, 0f, 0f };
-	float[] mageAttackTime = new float[4] { .8f, .8f, 0f, 0f };
+	float[] meleeAttackTime = new float[4] { .8f, .8f, .8f, 0f };
+	float[] mageAttackTime = new float[4] { .8f, .8f, .8f, 0f };
 
-	float[] meleeAnimationTime = new float[4] { 1.05f, 0f, 0f, 0f };
-	float[] mageAnimationTime = new float[4] { 1f, 1f, 0f, 0f };
+	float[] meleeAnimationTime = new float[4] { 1.05f, 1f, 1f, 0f };
+	float[] mageAnimationTime = new float[4] { 1f, 1f, 1f, 0f };
 
-	float[] mageAttackDistance = new float[4] { 20f, 20f, 0f, 0f };
+	float[] mageAttackDistance = new float[4] { 20f, 20f, 20f, 0f };
 	public GameObject[] mageAttackParticle = new GameObject[4];
 
 	static string alternateAttack = "AltAttack";
@@ -86,11 +86,11 @@ public class PlayerAttacking : MonoBehaviour {
 				isAttacking = true;
 				animator.SetTrigger(attackButtons[i]);
 				
-				if (meleeAttacksActive) {
+				if (meleeAttacksActive && meleeAttacksEnabled[i]) {
 					Debug.Log("Melee Attack!");
 					StartCoroutine(StartMeleeAttack(meleeAttackTime[i], meleeAnimationTime[i]));
 				}
-				else {
+				else if (mageAttacksActive && mageAttacksEnabled[i]) {
 					Debug.Log("Mage Attack!");
 					StartCoroutine(StartMageAttack(i));
 				}
@@ -140,27 +140,35 @@ public class PlayerAttacking : MonoBehaviour {
 		}
 	}
 
-	Vector3 getTargetTransformDirection() {
-		Vector3 closest = transform.forward;
+	GameObject getClosestEnemy() {
+		GameObject closest = null;
 		float closestDistance = float.MaxValue;
-
+		
 		foreach (GameObject enemy in enemyTargetList) {
 			Vector3 enemyPosition = enemy.transform.position;
 			float distance = Vector3.Distance(transform.position, enemyPosition);
 			if (distance < closestDistance) {
-				closest = enemyPosition;
+				closest = enemy;
 				closestDistance = distance;
 			}
 		}
 
-		//We did not change, just use forward position
-		if (closestDistance != float.MaxValue) {
-			float oldY = closest.y;
-			closest = closest - transform.position;
-			closest.y = oldY + .5f;
+		return closest;
+	}
+
+	Vector3 getTargetTransformDirection() {
+		Vector3 closestEnemyDirection = transform.forward;
+
+		GameObject closestEnemy = getClosestEnemy();
+
+		if (closestEnemy != null) {
+			closestEnemyDirection = closestEnemy.transform.position;
+			float oldY = closestEnemyDirection.y;
+			closestEnemyDirection = closestEnemyDirection - transform.position;
+			closestEnemyDirection.y = oldY + .5f;
 		}
 
-		return closest;
+		return closestEnemyDirection;
 	}
 
 	public void setMageAttack(int index, float animationTime, float attackTime, float attackDistance, GameObject particleObject) {
@@ -175,8 +183,10 @@ public class PlayerAttacking : MonoBehaviour {
 
 	IEnumerator StartMeleeAttack(float attackTime, float animationTime) {
 		yield return null;
+
 		animator.SetLayerWeight(MeleeAttackLayerIndex, 1);
 		swordCollider.enabled = true;
+
 		yield return new WaitForSeconds(attackTime);
 		swordCollider.enabled = false;
 
@@ -189,12 +199,22 @@ public class PlayerAttacking : MonoBehaviour {
 	IEnumerator StartMageAttack(int index) {
 		yield return null;
 
+		animator.SetLayerWeight(MageAttackLayerIndex, 1);
+
 		RaycastHit hit;
 		Vector3 attackTransform = transform.position;
 		attackTransform.y = transform.position.y + .5f;
 
+		if (index > 1) {
+			GameObject closestEnemy = getClosestEnemy();
+			if (closestEnemy != null) {
+				attackTransform = closestEnemy.transform.position;
+			}
+		}
+
 		GameObject attack = (GameObject)Instantiate (mageAttackParticle[index], attackTransform, Quaternion.identity);
 		attack.transform.parent = gameObject.transform.parent;
+
 
 		Vector3 Direction = getTargetTransformDirection();
 		Debug.Log(transform.forward +  ": " + Direction);
@@ -202,6 +222,8 @@ public class PlayerAttacking : MonoBehaviour {
 
 
 		yield return new WaitForSeconds(mageAttackTime[index]);
+
+		animator.SetLayerWeight(MageAttackLayerIndex, 0);
 
 		//This is handled in the objects class itself
 		//Destroy(attack.gameObject);
