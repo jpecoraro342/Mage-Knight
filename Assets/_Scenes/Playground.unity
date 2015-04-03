@@ -3562,6 +3562,10 @@ Prefab:
       propertyPath: stats
       value: 
       objectReference: {fileID: 1442889326}
+    - target: {fileID: 11409142, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
+      propertyPath: mageAttackParticle.Array.data[0]
+      value: 
+      objectReference: {fileID: 148114, guid: 2400bfa87101a4ba596752f73ea00547, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
   m_IsPrefabParent: 0

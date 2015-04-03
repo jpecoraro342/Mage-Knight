@@ -27,7 +27,20 @@ public class PlayerAttacking : MonoBehaviour {
 	static string Attack3 = "Attack3";
 	static string Attack4 = "Attack4";
 
-	static string AlternateAttack = "AltAttack";
+	string[] attackButtons = new string[4] { "Attack1", "Attack2", "Attack3", "Attack4" }; 
+	bool[] meleeAttacksEnabled = new bool[4] { true, false, false, false }; 
+	bool[] mageAttacksEnabled = new bool[4] { true, false, false, false };
+
+	float[] meleeAttackTime = new float[4] { .8f, 0f, 0f, 0f };
+	float[] mageAttackTime = new float[4] { .8f, 0f, 0f, 0f };
+
+	float[] meleeAnimationTime = new float[4] { 1.05f, 0f, 0f, 0f };
+	float[] mageAnimationTime = new float[4] { 1f, 0f, 0f, 0f };
+
+	float[] mageAttackDistance = new float[4] { 20f, 0f, 0f, 0f };
+	public GameObject[] mageAttackParticle = new GameObject[4];
+
+	static string alternateAttack = "AltAttack";
 
 	//Attack Bools
 	bool isAttacking = false;
@@ -59,32 +72,52 @@ public class PlayerAttacking : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetButton(AlternateAttack) && !altAttackPressed) {
+		if (Input.GetButton(alternateAttack) && !altAttackPressed) {
 			altAttackPressed = true;
 			meleeAttacksActive = !meleeAttacksActive;
 			mageAttacksActive = !mageAttacksActive;
 		}
-		else if (!Input.GetButton(AlternateAttack)) {
+		else if (!Input.GetButton(alternateAttack)) {
 			altAttackPressed = false;
 		}
 
+		for (int i = 0; i < 3; i++) {
+			if (Input.GetButton(attackButtons[i]) && !isAttacking && canAttack) {
+				isAttacking = true;
+				animator.SetTrigger(attackButtons[i]);
+				
+				if (meleeAttacksActive) {
+					Debug.Log("Melee Attack!");
+					StartCoroutine(StartMeleeAttack(meleeAttackTime[i], meleeAnimationTime[i]));
+				}
+				else {
+					Debug.Log("Mage Attack!");
+					StartCoroutine(StartMageAttack(i));
+				}
 
-		if (Input.GetButton(Attack1) && !isAttacking && canAttack) {
-			isAttacking = true;
-			animator.SetTrigger(Attack1);
-
-			if (meleeAttacksActive) {
-				Debug.Log("Melee Attack!");
-				StartCoroutine(StartMeleeAttack(Attack1Time, Attack1AnimationTime));
+				return;
 			}
-			else {
-				Debug.Log("Mage Attack!");
-				StartCoroutine(StartMageAttack1());
+			else if (!Input.GetButton(attackButtons[i])) {
+				canAttack = true;
 			}
 		}
-		else if (!Input.GetButton(Attack1)) {
-			canAttack = true;
-		}
+
+//		if (Input.GetButton(Attack1) && !isAttacking && canAttack) {
+//			isAttacking = true;
+//			animator.SetTrigger(Attack1);
+//
+//			if (meleeAttacksActive) {
+//				Debug.Log("Melee Attack!");
+//				StartCoroutine(StartMeleeAttack(Attack1Time, Attack1AnimationTime));
+//			}
+//			else {
+//				Debug.Log("Mage Attack!");
+//				StartCoroutine(StartMageAttack());
+//			}
+//		}
+//		else if (!Input.GetButton(Attack1)) {
+//			canAttack = true;
+//		}
 	}
 
 	public void MeleeTrigger(GameObject enemy) {
@@ -130,6 +163,14 @@ public class PlayerAttacking : MonoBehaviour {
 		return closest;
 	}
 
+	public void setMageAttack(int index, float animationTime, float attackTime, float attackDistance, GameObject particleObject) {
+		mageAttacksEnabled[index] = true;
+		mageAttackTime[index] = attackTime;
+		mageAnimationTime[index] = animationTime;
+		mageAttackDistance[index] = attackDistance;
+		mageAttackParticle[index] = particleObject;
+	}
+
 	//Attack Enumerators
 
 	IEnumerator StartMeleeAttack(float attackTime, float animationTime) {
@@ -145,7 +186,7 @@ public class PlayerAttacking : MonoBehaviour {
 		isAttacking = false;
 	}
 
-	IEnumerator StartMageAttack1() {
+	IEnumerator StartMageAttack(int index) {
 		yield return null;
 
 		RaycastHit hit;
@@ -166,7 +207,7 @@ public class PlayerAttacking : MonoBehaviour {
 
 		attackTransform.y = transform.position.y + .5f;
 
-		GameObject attack = (GameObject)Instantiate (mageAttack1Clone, attackTransform, Quaternion.identity);
+		GameObject attack = (GameObject)Instantiate (mageAttackParticle[index], attackTransform, Quaternion.identity);
 		attack.transform.parent = gameObject.transform.parent;
 
 		Vector3 Direction = getTargetTransformDirection();
@@ -174,7 +215,7 @@ public class PlayerAttacking : MonoBehaviour {
 		attack.transform.forward = Direction;
 
 
-		yield return new WaitForSeconds(MageAttack1Time);
+		yield return new WaitForSeconds(mageAttackTime[index]);
 
 		//This is handled in the objects class itself
 		//Destroy(attack.gameObject);
