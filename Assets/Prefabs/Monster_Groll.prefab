@@ -1161,7 +1161,7 @@ GameObject:
   - 136: {fileID: 13617420}
   - 114: {fileID: 11424472}
   m_Layer: 0
-  m_Name: monster1Animsweapon
+  m_Name: Monster_Groll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
