@@ -14,8 +14,10 @@ public class BossMovement : MonoBehaviour
 	//SphereCollider sphere;
 	bool detected;
 	bool inRange;
+	bool bossDead;
 	static float detection = 25;
 	static float attack = 5;
+	int bossHealth = 200;
 	
 	
 	void Awake ()
@@ -24,15 +26,17 @@ public class BossMovement : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag ("Player");
 		boss = GameObject.FindGameObjectWithTag ("Boss");
 		//playerHealth = player.GetComponent <PlayerHealth> ();
-		//enemyHealth = GetComponent <EnemyHealth> ();
+		//bossHealth = GetComponent <EnemyHealth> ();
 		//sphere = GetComponent <SphereCollider> ();
 		nav = GetComponent <NavMeshAgent> ();
-		nav.SetDestination (player.transform.position);
-		nav.updatePosition = false;
-		nav.updateRotation = false;
+		nav.Stop ();
+		//nav.SetDestination (player.transform.position);
+		//nav.updatePosition = false;
+		//nav.updateRotation = false;
 		anim = GetComponent <Animator> ();
 		detected = anim.GetBool ("PlayerDetected");
 		inRange = anim.GetBool ("PlayerInRange");
+		bossDead = anim.GetBool ("BossDead");
 	}
 	
 	
@@ -43,20 +47,23 @@ public class BossMovement : MonoBehaviour
 		//if the player is close enough to the enemy
 		//detected = anim.GetBool ("PlayerDetected");
 		//inRange = anim.GetBool ("PlayerInRange");
+		if (bossDead)
+			return;
 		float distance = Vector3.Distance (player.transform.position, boss.transform.position);
 		nav.SetDestination (player.transform.position);
 		if (distance < detection) {
 			detected = true;
-
+			nav.Resume ();
 			if (distance < attack)
 			{
-				nav.updatePosition = false;
-				nav.updateRotation = true;
+				//nav.updatePosition = false;
+				//nav.updateRotation = true;
+
 				inRange = true;
 			}
 			else {
-				nav.updatePosition = true;
-				nav.updateRotation = true;
+				//nav.updatePosition = true;
+				//nav.updateRotation = true;
 				//nav.Resume ();
 				inRange = false;
 			}
@@ -78,10 +85,11 @@ public class BossMovement : MonoBehaviour
 			}*/
 		}
 		else {
+			nav.Stop ();
 			detected = false;
 			inRange = false;
-			nav.updatePosition = false;
-			nav.updateRotation = false;
+			//nav.updatePosition = false;
+			//nav.updateRotation = false;
 		}
 	
 
@@ -146,13 +154,16 @@ public class BossMovement : MonoBehaviour
 	void OnTriggerEnter( Collider col )
 	{
 		if (col.tag == "Player" && anim.GetCurrentAnimatorStateInfo (0).IsName ("Attack")) {
-			BossStats.text = "entered";
+			//This is where you would tell the player to take damage
 		}
 	}
 
-	void OnTriggerExit( Collider col )
+	public void takeDamage(int damageTaken)
 	{
-		if (col.tag == "Player")
-			BossStats.text = "exited";
+		bossHealth -= damageTaken;
+		if (bossHealth <= 0) {
+			bossDead = true;
+			anim.SetBool ("BossDead", true);
+		}
 	}
 }
