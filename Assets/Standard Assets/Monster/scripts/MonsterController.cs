@@ -14,7 +14,7 @@ public class MonsterController : MonoBehaviour {
 	Rigidbody rigidbody;
 	NavMeshAgent navmeshAgent;
 	GameObject player;
-	GUIText statsText;
+	//GUIText statsText;
 
 	float atkTime = 0f;
 
@@ -32,14 +32,14 @@ public class MonsterController : MonoBehaviour {
 		rigidbody = GetComponent<Rigidbody> ();
 
 		player = GameObject.FindGameObjectWithTag ("Player");
-		statsText = GameObject.FindGameObjectWithTag ("MonsterStats").GetComponent<GUIText>();
+		//statsText = GameObject.FindGameObjectWithTag ("MonsterStats").GetComponent<GUIText>();
 
 	}
 	void Start () {
 		navmeshAgent.enabled = true;
 		navmeshAgent.destination = player.transform.position;
 		navmeshAgent.autoTraverseOffMeshLink = false;
-		this.rigidbody.detectCollisions = false;
+		//this.rigidbody.detectCollisions = false;
 		this.rigidbody.isKinematic = true;
 	}
 	
@@ -47,11 +47,11 @@ public class MonsterController : MonoBehaviour {
 	void FixedUpdate () {
 		if(navmeshAgent.enabled) navmeshAgent.destination = player.transform.position;  //for performance, set it to player's position every x seconds instead of every frame?
 		animator.SetFloat ("speed", this.navmeshAgent.velocity.magnitude);
-		statsText.text = "\nnavMeshSpeed: " + this.navmeshAgent.velocity.magnitude + 
+		/*statsText.text = "\nnavMeshSpeed: " + this.navmeshAgent.velocity.magnitude + 
 			"\n\tnavmeshAgent.isOnOffMeshLink: " + navmeshAgent.isOnOffMeshLink + 
 			"\n\ttraversingLink: " + this.traversingLink + 
 				"\n\tRigidbody.iskinematic: " + this.rigidbody.isKinematic + 
-				"\n\tnavmeshAgent.active: " + this.navmeshAgent.enabled;
+				"\n\tnavmeshAgent.active: " + this.navmeshAgent.enabled;*/
 
 		checkJump ();
 		checkAttack ();

@@ -545,6 +545,10 @@ GameObject:
   - 114: {fileID: 11401620}
   - 143: {fileID: 14307736}
   - 114: {fileID: 11409142}
+  - 114: {fileID: 11465788}
+  - 114: {fileID: 11488228}
+  - 114: {fileID: 11477502}
+  - 136: {fileID: 13630450}
   m_Layer: 0
   m_Name: Main_Character
   m_TagString: Player
@@ -1666,7 +1670,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101690}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
@@ -1784,7 +1788,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 13636976}
-  mageAttack1Clone: {fileID: 148114, guid: 2400bfa87101a4ba596752f73ea00547, type: 2}
+  mageAttackParticle:
+  - {fileID: 140890, guid: c8ee720dae8c24a57a51414b642a2d57, type: 2}
+  - {fileID: 147320, guid: 1f929f7fbc7b84293adfbb545f4e2c52, type: 2}
+  - {fileID: 168270, guid: 9d5cc4f36165346e9b68d575c90d288b, type: 2}
+  - {fileID: 0}
 --- !u!114 &11437802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1797,6 +1805,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAttackScript: {fileID: 11409142}
+--- !u!114 &11465788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d456015863a6f740a6b1213f0021548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  healthText: {fileID: 0}
+  healthSlider: {fileID: 0}
+  damageImage: {fileID: 0}
+  flashSpeed: 5
+  flashColour: {r: 1, g: 0, b: 0, a: .100000001}
+--- !u!114 &11477502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24cb47259e7188249994ced75de447de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingStamina: 100
+  currentStamina: 0
+  staminaText: {fileID: 0}
+  staminaSlider: {fileID: 0}
+--- !u!114 &11488228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a071a203a4d06e34fa9fdac01d5a3167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingMagic: 100
+  currentMagic: 0
+  magicText: {fileID: 0}
+  magicSlider: {fileID: 0}
+--- !u!136 &13630450
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101690}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 4
+  m_Height: 16
+  m_Direction: 2
+  m_Center: {x: 0, y: 1, z: 9.5}
 --- !u!136 &13636976
 CapsuleCollider:
   m_ObjectHideFlags: 1

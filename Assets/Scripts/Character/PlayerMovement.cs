@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-	public GUIText stats; 
+	public Text stats; 
 	public float turnSmoothing = 10f;
 	public float speed = 10f;
 	public float targetJumpHeight = 3f;

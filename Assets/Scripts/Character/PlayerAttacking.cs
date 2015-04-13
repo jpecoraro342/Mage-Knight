@@ -16,8 +16,10 @@ public class PlayerAttacking : MonoBehaviour {
 
 	Animator animator;
 
+	static string EnemyTag = "Enemy";
+	static string BossTag = "Boss";
+
 	public CapsuleCollider swordCollider;
-	public GameObject mageAttack1Clone;
 
 	LinkedList<GameObject> enemyTargetList;
 
@@ -126,7 +128,7 @@ public class PlayerAttacking : MonoBehaviour {
 
 	public void OnTriggerEnter(Collider other) {
 		GameObject triggerObject = other.gameObject;
-		if (triggerObject.tag == "Enemy") {
+		if (triggerObject.tag == EnemyTag || triggerObject.tag == BossTag) {
 			Debug.Log("Enter");
 			enemyTargetList.AddLast(other.gameObject);
 		}
@@ -134,7 +136,7 @@ public class PlayerAttacking : MonoBehaviour {
 
 	public void OnTriggerExit(Collider other) {
 		GameObject triggerObject = other.gameObject;
-		if (triggerObject.tag == "Enemy") {
+		if (triggerObject.tag == EnemyTag || triggerObject.tag == BossTag) {
 			Debug.Log("Exit");
 			enemyTargetList.Remove(other.gameObject);
 		}
