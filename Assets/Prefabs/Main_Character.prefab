@@ -1784,7 +1784,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordCollider: {fileID: 13636976}
-  mageAttack1Clone: {fileID: 148114, guid: 2400bfa87101a4ba596752f73ea00547, type: 2}
+  mageAttackParticle:
+  - {fileID: 140890, guid: c8ee720dae8c24a57a51414b642a2d57, type: 2}
+  - {fileID: 147320, guid: 1f929f7fbc7b84293adfbb545f4e2c52, type: 2}
+  - {fileID: 168270, guid: 9d5cc4f36165346e9b68d575c90d288b, type: 2}
+  - {fileID: 0}
 --- !u!114 &11437802
 MonoBehaviour:
   m_ObjectHideFlags: 1

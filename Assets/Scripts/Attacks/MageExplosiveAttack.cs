@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class MageExplosiveAttack : MonoBehaviour {
 
+	static string EnemyTag = "Enemy";
+	static string BossTag = "Boss";
+
 	public float startTime = 0f; //For the particle system  
 	public float projectileLife = 1f;
 	
@@ -48,7 +51,7 @@ public class MageExplosiveAttack : MonoBehaviour {
 	
 	public void OnTriggerEnter(Collider other) {
 		GameObject triggerObject = other.gameObject;
-		if (triggerObject.tag == "Enemy") {
+		if (triggerObject.tag == EnemyTag || triggerObject.tag == BossTag) {
 			Debug.Log("Enter");
 			enemyTargetList.AddLast(other.gameObject);
 		}
@@ -56,7 +59,7 @@ public class MageExplosiveAttack : MonoBehaviour {
 	
 	public void OnTriggerExit(Collider other) {
 		GameObject triggerObject = other.gameObject;
-		if (triggerObject.tag == "Enemy") {
+		if (triggerObject.tag == EnemyTag || triggerObject.tag == BossTag) {
 			Debug.Log("Exit");
 			enemyTargetList.Remove(other.gameObject);
 		}
