@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 0e8549d37bb9a8845a9ad460a64102a0
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 18
   fileIDToRecycleName:
     100000: Camera
     100002: figure1_v004:Layer1
@@ -60,6 +60,7 @@ ModelImporter:
     400052: Spine_Upper
     400054: //RootNode
     4300000: figure1_v004:Layer1
+    4300002: figure1_v004:Layer3
     7400000: Base Stack
     9500000: //RootNode
     13700000: figure1_v004:Layer1
@@ -91,11 +92,13 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
+    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
@@ -410,3 +413,5 @@ ModelImporter:
   animationType: 3
   additionalBone: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
