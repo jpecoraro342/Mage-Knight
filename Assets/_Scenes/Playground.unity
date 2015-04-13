@@ -4407,14 +4407,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 11409142, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
-      propertyPath: mageAttack1Clone
+    - target: {fileID: 11477502, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
+      propertyPath: staminaText
       value: 
-      objectReference: {fileID: 148114, guid: 2400bfa87101a4ba596752f73ea00547, type: 2}
-    - target: {fileID: 11401620, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
-      propertyPath: stats
+      objectReference: {fileID: 220391604}
+    - target: {fileID: 11477502, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
+      propertyPath: staminaSlider
       value: 
-      objectReference: {fileID: 1286114294}
+      objectReference: {fileID: 738150927}
+    - target: {fileID: 11488228, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
+      propertyPath: magicText
+      value: 
+      objectReference: {fileID: 894820096}
+    - target: {fileID: 11488228, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
+      propertyPath: magicSlider
+      value: 
+      objectReference: {fileID: 252098896}
     - target: {fileID: 11465788, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
       propertyPath: healthText
       value: 
@@ -4427,26 +4435,10 @@ Prefab:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 2103650051}
-    - target: {fileID: 11488228, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
-      propertyPath: magicText
+    - target: {fileID: 11401620, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
+      propertyPath: stats
       value: 
-      objectReference: {fileID: 894820096}
-    - target: {fileID: 11488228, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
-      propertyPath: magicSlider
-      value: 
-      objectReference: {fileID: 252098896}
-    - target: {fileID: 11477502, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
-      propertyPath: staminaSlider
-      value: 
-      objectReference: {fileID: 738150927}
-    - target: {fileID: 11477502, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
-      propertyPath: staminaText
-      value: 
-      objectReference: {fileID: 220391604}
-    - target: {fileID: 5401620, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1286114294}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
   m_IsPrefabParent: 0
@@ -7256,27 +7248,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22418734, guid: 66a4cf8a7de604a7ab77578b47af7af0, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22418734, guid: 66a4cf8a7de604a7ab77578b47af7af0, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22483616, guid: 66a4cf8a7de604a7ab77578b47af7af0, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22483616, guid: 66a4cf8a7de604a7ab77578b47af7af0, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22487176, guid: 66a4cf8a7de604a7ab77578b47af7af0, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22487176, guid: 66a4cf8a7de604a7ab77578b47af7af0, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66a4cf8a7de604a7ab77578b47af7af0, type: 2}
