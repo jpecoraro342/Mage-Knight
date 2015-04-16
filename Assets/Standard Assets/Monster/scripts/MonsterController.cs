@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MonsterController : MonoBehaviour {
 	public float speed = 10f;
-	public float maxHP = 50f;
+	//public float maxHP = 50f;
 	public float currentHP;
 	public float jumpForce;
 
@@ -21,9 +21,11 @@ public class MonsterController : MonoBehaviour {
 	OffMeshLinkData jumpLink;
 
 	bool traversingLink = false;
+	MonsterStats stats;
 
 
 	void Awake(){
+		stats = GetComponent<MonsterStats> ();
 		animator = GetComponent<Animator> ();
 		animator.SetBool ("grounded", grounded);
 		animator.SetFloat ("speed", 0f);
@@ -54,13 +56,13 @@ public class MonsterController : MonoBehaviour {
 				"\n\tnavmeshAgent.active: " + this.navmeshAgent.enabled;*/
 
 		checkJump ();
-		checkAttack ();
+		//checkAttack ();
 
 	}
 
-	void checkAttack(){
+	/*void checkAttack(){
 		//animator.SetBool ("grabweapon", true);
-		if ((player.transform.position - this.transform.position).magnitude < 3) {
+		if ((player.transform.position - this.transform.position).magnitude < 3 && !stats.isDead) {
 			if ((Time.time - atkTime) > 1){
 				animator.SetFloat ("random", Random.Range(0, 4));
 				atkTime = Time.time;
@@ -70,7 +72,7 @@ public class MonsterController : MonoBehaviour {
 			//http://answers.unity3d.com/questions/750785/mecanim-trigger-event-at-end-of-animation-state.html
 		}
 	}
-
+*/
 	void checkJump(){
 		if (!this.navmeshAgent.enabled) return;
 		if (navmeshAgent.isOnOffMeshLink){

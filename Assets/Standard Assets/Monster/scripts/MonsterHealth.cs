@@ -2,34 +2,31 @@
 using System.Collections;
 
 public class MonsterHealth : MonoBehaviour {
-	public int maxHealth = 50;
-	int currentHealth;
 	GameObject player;
 	Animator animator;
 	NavMeshAgent agent;
-	bool isDead;
+	MonsterStats stats;
 
 	// Use this for initialization
 	void Start () {
-		currentHealth = maxHealth;
+		stats = GetComponent<MonsterStats> ();
 		player = GameObject.FindGameObjectWithTag ("Player");
 		animator = GetComponent<Animator> ();
 		agent = GetComponent<NavMeshAgent> ();
-		isDead = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (currentHealth <= 0) {
+		if (stats.currentHealth <= 0) {
 			agent.enabled = false;
-			if (!isDead){
+			if (!stats.isDead){
 				animator.SetTrigger("dead");
-				isDead = true;
+				stats.isDead = true;
 			}
 		}
 	}
 
 	public void TakeDamage(int damage){
-		this.currentHealth -= damage;
+		stats.currentHealth -= damage;
 	}
 }

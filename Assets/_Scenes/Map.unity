@@ -26495,22 +26495,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 10833712, guid: 192ee19c95d29de44922d955d51cad72, type: 2}
-      propertyPath: m_Range
-      value: 6.03000021
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424472, guid: 192ee19c95d29de44922d955d51cad72, type: 2}
-      propertyPath: currentHP
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 13617420, guid: 192ee19c95d29de44922d955d51cad72, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11424472, guid: 192ee19c95d29de44922d955d51cad72, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 192ee19c95d29de44922d955d51cad72, type: 2}
   m_IsPrefabParent: 0
@@ -41069,26 +41053,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11401620, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
-      propertyPath: stats
-      value: 
-      objectReference: {fileID: 19547743}
-    - target: {fileID: 10871186, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
-      propertyPath: m_Lightmapping
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11465788, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
-      propertyPath: healthText
-      value: 
-      objectReference: {fileID: 345317128}
-    - target: {fileID: 11465788, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
-      propertyPath: healthSlider
-      value: 
-      objectReference: {fileID: 345317127}
-    - target: {fileID: 11465788, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
-      propertyPath: damageImage
-      value: 
-      objectReference: {fileID: 345317126}
     - target: {fileID: 11488228, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
       propertyPath: magicText
       value: 
@@ -41105,6 +41069,22 @@ Prefab:
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 345317122}
+    - target: {fileID: 11465788, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 345317128}
+    - target: {fileID: 11465788, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 345317127}
+    - target: {fileID: 11465788, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
+      propertyPath: damageImage
+      value: 
+      objectReference: {fileID: 345317126}
+    - target: {fileID: 11401620, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 19547743}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b0fc7793881c4c32bfd29511b362adf, type: 2}
   m_IsPrefabParent: 0
@@ -83315,7 +83295,7 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 197952, guid: 192ee19c95d29de44922d955d51cad72, type: 2}
   m_PrefabInternal: {fileID: 681169256}
---- !u!114 &2047020262
+--- !u!114 &2047020270
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -83323,10 +83303,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2047020260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8c64b3a88d2344ba8a3c657d446f54, type: 3}
+  m_Script: {fileID: 11500000, guid: 29ff627bd099f574fa6bb6927ea4bf9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
 --- !u!1 &2049504237
 GameObject:
   m_ObjectHideFlags: 0

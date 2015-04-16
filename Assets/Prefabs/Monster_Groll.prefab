@@ -1348,6 +1348,8 @@ GameObject:
   - 195: {fileID: 19596970}
   - 136: {fileID: 13617420}
   - 114: {fileID: 11424472}
+  - 114: {fileID: 11447520}
+  - 114: {fileID: 11433992}
   m_Layer: 0
   m_Name: Monster_Groll
   m_TagString: Enemy
@@ -2738,7 +2740,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: .599240601, b: .274059266, a: 1}
   m_Intensity: 8
-  m_Range: 9.82999992
+  m_Range: 6.03000021
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -2803,9 +2805,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
-  currentHP: 0
-  jumpForce: 55
+  currentHP: 50
+  jumpForce: 0
+--- !u!114 &11433992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcb77f6c276e5345b0d06cd06cd69b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  currentHealth: 0
+  monsterDamage: 10
+  isDead: 0
+  attackSpeed: 1
+  speed: 10
+--- !u!114 &11447520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8c64b3a88d2344ba8a3c657d446f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11490334
 MonoBehaviour:
   m_ObjectHideFlags: 1
