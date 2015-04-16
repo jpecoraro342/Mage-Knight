@@ -124,6 +124,7 @@ public class PlayerAttacking : MonoBehaviour {
 
 	public void MeleeTrigger(GameObject enemy) {
 		Debug.Log("Deal Damage");
+		enemy.GetComponent<MonsterHealth> ().TakeDamage (25);
 	}
 
 	public void OnTriggerEnter(Collider other) {
