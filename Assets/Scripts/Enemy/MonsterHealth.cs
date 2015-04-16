@@ -3,13 +3,14 @@ using System.Collections;
 
 public class MonsterHealth : MonoBehaviour {
 	public int maxHealth = 50;
-	int currentHealth = maxHealth;
+	int currentHealth;
 	GameObject player;
 	Animator animator;
 	NavMeshAgent agent;
 
 	// Use this for initialization
 	void Start () {
+		currentHealth = maxHealth;
 		player = GameObject.FindGameObjectWithTag ("Player");
 		animator = GetComponent<Animator> ();
 		agent = GetComponent<NavMeshAgent> ();
@@ -23,7 +24,7 @@ public class MonsterHealth : MonoBehaviour {
 		}
 	}
 
-	void TakeDamage(int damage){
+	public void TakeDamage(int damage){
 		this.currentHealth -= damage;
 	}
 }

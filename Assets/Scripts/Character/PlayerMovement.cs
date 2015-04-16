@@ -35,7 +35,10 @@ public class PlayerMovement : MonoBehaviour {
 		animator = GetComponent<Animator>();
 
 		animator.SetFloat(AnimatorSpeed, 0);
-		stats.text = "Stats: ";
+
+		if (stats != null) {
+			stats.text = "Stats: ";
+		}
 	}
 	
 	void FixedUpdate ()
@@ -127,6 +130,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	void UpdateStats(float horizontal, float vertical) 
 	{
-		stats.text = "Stats: \n\th = " + horizontal + "\n\tv = " + vertical + "\n\tMovement = " + horizontalMoveDirection + "\n\tHorizontal Speed = " + horizontalVelocity.magnitude + "\n\tVertical Speed = " + verticalVelocity;
+		if (stats != null) {
+			stats.text = "Stats: \n\th = " + horizontal + "\n\tv = " + vertical + "\n\tMovement = " + horizontalMoveDirection + "\n\tHorizontal Speed = " + horizontalVelocity.magnitude + "\n\tVertical Speed = " + verticalVelocity;
+		}
 	}
 }

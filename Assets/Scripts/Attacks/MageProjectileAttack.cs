@@ -22,6 +22,8 @@ public class MageProjectileAttack : MonoBehaviour {
 		if (otherobj.tag == "Enemy") {
 			Debug.Log("Deal Damage");
 
+			otherobj.GetComponent<MonsterHealth>().TakeDamage(20);
+
 			Vector3 damageSystemPosition = Vector3.zero;
 			damageSystemPosition.y += .5f;
 

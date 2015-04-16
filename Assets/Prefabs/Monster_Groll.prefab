@@ -1348,6 +1348,7 @@ GameObject:
   - 195: {fileID: 19596970}
   - 136: {fileID: 13617420}
   - 114: {fileID: 11424472}
+  - 114: {fileID: 11422930}
   m_Layer: 0
   m_Name: Monster_Groll
   m_TagString: Enemy
@@ -2738,7 +2739,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: .599240601, b: .274059266, a: 1}
   m_Intensity: 8
-  m_Range: 9.82999992
+  m_Range: 6.03000021
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -2791,6 +2792,18 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11422930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8c64b3a88d2344ba8a3c657d446f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
 --- !u!114 &11424472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2804,7 +2817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   maxHP: 50
-  currentHP: 0
+  currentHP: 50
   jumpForce: 55
 --- !u!114 &11490334
 MonoBehaviour:
