@@ -11,6 +11,7 @@ public class MonsterStats : MonoBehaviour {
 	public float visionCone;
 	public float visionRadius;
 	public bool seenPlayer;
+	public float timeSinceSeenPlayer;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +21,8 @@ public class MonsterStats : MonoBehaviour {
 		isDead = false;
 		attackSpeed = 2f;
 		speed = 10f;
-		visionCone = 90f;
-		visionRadius = 10f;
+		visionCone = 120f;
+		visionRadius = 20f;
 		seenPlayer = false;
 	}
 	

@@ -67,16 +67,24 @@ public class MonsterController : MonoBehaviour {
 	}
 
 	bool canSeePlayer(){
+		Vector3 heightAdjust = new Vector3 (0, 1, 0);
+		Vector3 raySource = this.transform.position + heightAdjust;
 		bool result = false;
 		Vector3 targetDir = player.transform.position - this.transform.position;
 		Vector3 forward = this.transform.forward;
 		float angle = Vector3.Angle(targetDir, forward);
 		if (angle < stats.visionCone && playerDistance () < stats.visionRadius) {
 			RaycastHit hit;
-			Physics.Raycast (transform.position, targetDir, out hit);
-			if (hit.collider.transform.root == player.transform.root)
+			Physics.Raycast (raySource, targetDir, out hit);
+			if (hit.collider.transform.root == player.transform.root){
+				if(stats.seenPlayer == false){
+					stats.visionCone = 360;
+					stats.visionRadius = 50;
+				}
+				stats.seenPlayer = true;
 
 				result = true;
+			}
 		}
 		return result;
 	}
