@@ -75,7 +75,7 @@ public class MonsterController : MonoBehaviour {
 			RaycastHit hit;
 			Physics.Raycast (transform.position, targetDir, out hit);
 			if (hit.collider.transform.root == player.transform.root)
-				stats.seenPlayer
+
 				result = true;
 		}
 		return result;
