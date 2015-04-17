@@ -39,7 +39,7 @@ public class MonsterController : MonoBehaviour {
 	}
 	void Start () {
 		navmeshAgent.enabled = true;
-		navmeshAgent.destination = player.transform.position;
+		//navmeshAgent.destination = player.transform.position;
 		navmeshAgent.autoTraverseOffMeshLink = false;
 		//this.rigidbody.detectCollisions = false;
 		this.rigidbody.isKinematic = true;
@@ -47,7 +47,8 @@ public class MonsterController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(navmeshAgent.enabled) navmeshAgent.destination = player.transform.position;  //for performance, set it to player's position every x seconds instead of every frame?
+		if (navmeshAgent.enabled && canSeePlayer ())
+			pursuePlayer ();   //for performance, set it to player's position every x seconds instead of every frame?
 		animator.SetFloat ("speed", this.navmeshAgent.velocity.magnitude);
 		/*statsText.text = "\nnavMeshSpeed: " + this.navmeshAgent.velocity.magnitude + 
 			"\n\tnavmeshAgent.isOnOffMeshLink: " + navmeshAgent.isOnOffMeshLink + 
@@ -55,10 +56,36 @@ public class MonsterController : MonoBehaviour {
 				"\n\tRigidbody.iskinematic: " + this.rigidbody.isKinematic + 
 				"\n\tnavmeshAgent.active: " + this.navmeshAgent.enabled;*/
 
-		checkJump ();
+
 		//checkAttack ();
 
 	}
+
+	void pursuePlayer(){
+		navmeshAgent.destination = player.transform.position;
+		checkJump ();
+	}
+
+	bool canSeePlayer(){
+		bool result = false;
+		Vector3 targetDir = player.transform.position - this.transform.position;
+		Vector3 forward = this.transform.forward;
+		float angle = Vector3.Angle(targetDir, forward);
+		if (angle < stats.visionCone && playerDistance () < stats.visionRadius) {
+			RaycastHit hit;
+			Physics.Raycast (transform.position, targetDir, out hit);
+			if (hit.collider.transform.root == player.transform.root)
+				stats.seenPlayer
+				result = true;
+		}
+		return result;
+	}
+
+	float playerDistance(){
+		return (player.transform.position - this.transform.position).magnitude;
+	}
+
+
 
 	/*void checkAttack(){
 		//animator.SetBool ("grabweapon", true);

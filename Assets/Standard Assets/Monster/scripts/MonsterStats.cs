@@ -8,6 +8,9 @@ public class MonsterStats : MonoBehaviour {
 	public bool isDead;
 	public float attackSpeed;
 	public float speed;
+	public float visionCone;
+	public float visionRadius;
+	public bool seenPlayer;
 
 	// Use this for initialization
 	void Start () {
@@ -15,8 +18,11 @@ public class MonsterStats : MonoBehaviour {
 		currentHealth = maxHealth;
 		monsterDamage = 10;
 		isDead = false;
-		attackSpeed = 1f;
+		attackSpeed = 2f;
 		speed = 10f;
+		visionCone = 90f;
+		visionRadius = 10f;
+		seenPlayer = false;
 	}
 	
 	// Update is called once per frame

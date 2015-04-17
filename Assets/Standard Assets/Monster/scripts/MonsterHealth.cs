@@ -27,6 +27,6 @@ public class MonsterHealth : MonoBehaviour {
 	}
 
 	public void TakeDamage(int damage){
-		stats.currentHealth -= damage;
+		stats.currentHealth = damage;
 	}
 }
