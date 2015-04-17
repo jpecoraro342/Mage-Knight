@@ -19,7 +19,7 @@ public class PlayerAttacking : MonoBehaviour {
 	static string EnemyTag = "Enemy";
 	static string BossTag = "Boss";
 
-	public CapsuleCollider swordCollider;
+	public GameObject sword;
 
 	LinkedList<GameObject> enemyTargetList;
 
@@ -41,6 +41,7 @@ public class PlayerAttacking : MonoBehaviour {
 
 	float[] mageAttackDistance = new float[4] { 20f, 20f, 20f, 0f };
 	public GameObject[] mageAttackParticle = new GameObject[4];
+	public GameObject[] swordAttackWeapons = new GameObject[4];
 
 	static string alternateAttack = "AltAttack";
 
@@ -65,9 +66,7 @@ public class PlayerAttacking : MonoBehaviour {
 	int BaseLayerIndex = 0;
 	int MeleeAttackLayerIndex = 1;
 	int MageAttackLayerIndex = 2;
-
-
-
+	
 	void Awake () {
 		animator = GetComponent<Animator>();
 		enemyTargetList = new LinkedList<GameObject>();
@@ -90,7 +89,7 @@ public class PlayerAttacking : MonoBehaviour {
 				
 				if (meleeAttacksActive && meleeAttacksEnabled[i]) {
 					Debug.Log("Melee Attack!");
-					StartCoroutine(StartMeleeAttack(meleeAttackTime[i], meleeAnimationTime[i]));
+					StartCoroutine(StartMeleeAttack(i));
 				}
 				else if (mageAttacksActive && mageAttacksEnabled[i]) {
 					Debug.Log("Mage Attack!");
@@ -103,29 +102,9 @@ public class PlayerAttacking : MonoBehaviour {
 				canAttack = true;
 			}
 		}
-
-//		if (Input.GetButton(Attack1) && !isAttacking && canAttack) {
-//			isAttacking = true;
-//			animator.SetTrigger(Attack1);
-//
-//			if (meleeAttacksActive) {
-//				Debug.Log("Melee Attack!");
-//				StartCoroutine(StartMeleeAttack(Attack1Time, Attack1AnimationTime));
-//			}
-//			else {
-//				Debug.Log("Mage Attack!");
-//				StartCoroutine(StartMageAttack());
-//			}
-//		}
-//		else if (!Input.GetButton(Attack1)) {
-//			canAttack = true;
-//		}
 	}
 
-	public void MeleeTrigger(GameObject enemy) {
-		Debug.Log("Deal Damage");
-	}
-
+	//These are for the auto targetting system
 	public void OnTriggerEnter(Collider other) {
 		GameObject triggerObject = other.gameObject;
 		if (triggerObject.tag == EnemyTag || triggerObject.tag == BossTag) {
@@ -183,14 +162,16 @@ public class PlayerAttacking : MonoBehaviour {
 
 	//Attack Enumerators
 
-	IEnumerator StartMeleeAttack(float attackTime, float animationTime) {
+	IEnumerator StartMeleeAttack(int index) {
 		yield return null;
+		float attackTime = meleeAttackTime[index];
+		float animationTime = meleeAnimationTime[index];
 
 		animator.SetLayerWeight(MeleeAttackLayerIndex, 1);
-		swordCollider.enabled = true;
+		swordAttackWeapons[index].SetActive(true);
 
 		yield return new WaitForSeconds(attackTime);
-		swordCollider.enabled = false;
+		swordAttackWeapons[index].SetActive(false);
 
 		yield return new WaitForSeconds(animationTime - attackTime);
 		animator.SetLayerWeight(MeleeAttackLayerIndex, 0);
@@ -226,9 +207,6 @@ public class PlayerAttacking : MonoBehaviour {
 		yield return new WaitForSeconds(mageAttackTime[index]);
 
 		animator.SetLayerWeight(MageAttackLayerIndex, 0);
-
-		//This is handled in the objects class itself
-		//Destroy(attack.gameObject);
 
 		isAttacking = false;
 	}

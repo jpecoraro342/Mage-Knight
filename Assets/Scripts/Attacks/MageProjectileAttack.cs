@@ -6,6 +6,9 @@ public class MageProjectileAttack : MonoBehaviour {
 	public float speed = 2f;
 	public float projectileLife = 1f;
 
+	public float damage = 10;
+	public float damageMultiplier = 1;
+
 	public GameObject damageObject;
 
 	void Start () {
@@ -31,10 +34,8 @@ public class MageProjectileAttack : MonoBehaviour {
 			damageSystem.transform.localPosition = damageSystemPosition;
 			damageSystem.transform.localScale = new Vector3(1, 1, 1);
 
-			//Deal the damage
+			//TODO: Deal Damage
 
-			//Destroy or keep going?
-			//StartCoroutine(DelayDestroy(.2f));
 		}
 	}
 
