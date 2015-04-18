@@ -6,6 +6,12 @@ public class MonsterHealth : MonoBehaviour {
 	Animator animator;
 	NavMeshAgent agent;
 	MonsterStats stats;
+	public Transform healthOrb;
+	private float deathTime;
+
+	private Rigidbody rigid;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -22,11 +28,22 @@ public class MonsterHealth : MonoBehaviour {
 			if (!stats.isDead){
 				animator.SetTrigger("dead");
 				stats.isDead = true;
+				deathTime = Time.time;
+				//rigid.
+				//if (Random.value < 0.75){
+				 Instantiate(healthOrb, this.gameObject.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+				//}
 			}
 		}
+		if (stats.isDead && Time.time - deathTime > 5) {
+			this.transform.root.Translate (new Vector3(0,-0.1f,0) * Time.deltaTime);
+				}
+		if (stats.isDead && Time.time - deathTime > 13) {
+			DestroyObject (this.gameObject);
+				}
 	}
 
 	public void TakeDamage(int damage){
-		stats.currentHealth = damage;
+		stats.currentHealth -= damage;
 	}
 }
