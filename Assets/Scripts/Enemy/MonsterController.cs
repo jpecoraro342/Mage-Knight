@@ -73,6 +73,7 @@ public class MonsterController : MonoBehaviour {
 		Vector3 targetDir = player.transform.position - this.transform.position;
 		Vector3 forward = this.transform.forward;
 		float angle = Vector3.Angle(targetDir, forward);
+		angle = Mathf.Abs (angle);
 		if (angle < stats.visionCone && playerDistance () < stats.visionRadius) {
 			RaycastHit hit;
 			Physics.Raycast (raySource, targetDir, out hit);

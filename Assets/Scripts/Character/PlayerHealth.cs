@@ -105,7 +105,7 @@ public class PlayerHealth : MonoBehaviour
 		isDead = true;
 		
 		// Turn off any remaining shooting effects.
-	//	playerShooting.DisableEffects ();
+		//	playerShooting.DisableEffects ();
 		
 		// Tell the animator that the player is dead.
 		anim.SetTrigger ("Die");
