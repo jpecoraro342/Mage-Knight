@@ -17,6 +17,8 @@ public class PlayerAttacking : MonoBehaviour {
 	Animator animator;
 
 	public Text stats;
+	public RawImage StaffEnabled;
+	public RawImage SwordEnabled;
 
 	static string EnemyTag = "Enemy";
 	static string BossTag = "Boss";
@@ -77,6 +79,9 @@ public class PlayerAttacking : MonoBehaviour {
 			altAttackPressed = true;
 			meleeAttacksActive = !meleeAttacksActive;
 			mageAttacksActive = !mageAttacksActive;
+			Debug.Log("Melee: " + meleeAttacksActive + "Mage: " + mageAttacksActive);
+			SwordEnabled.enabled = meleeAttacksActive;
+			StaffEnabled.enabled = mageAttacksActive;
 		}
 		else if (!Input.GetButton(alternateAttack)) {
 			altAttackPressed = false;
