@@ -3,21 +3,30 @@
 --- !u!21 &2100000
 Material:
 <<<<<<< HEAD
+<<<<<<< HEAD
   serializedVersion: 3
 =======
   serializedVersion: 5
 >>>>>>> CharacterController
+=======
+  serializedVersion: 5
+>>>>>>> c516bff34f5b7ed25fbd2e7aa7ae65d5e81165b2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: ParticleFirecloud
   m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_ShaderKeywords: []
 =======
   m_ShaderKeywords: 
   m_LightmapFlags: 5
 >>>>>>> CharacterController
+=======
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+>>>>>>> c516bff34f5b7ed25fbd2e7aa7ae65d5e81165b2
   m_CustomRenderQueue: -1
   m_SavedProperties:
     serializedVersion: 2
@@ -46,23 +55,32 @@ Material:
       data:
         first:
 <<<<<<< HEAD
+<<<<<<< HEAD
           name: _Emission
         second: {r: 0, g: 0, b: 0, a: 0}
       data:
         first:
 =======
 >>>>>>> CharacterController
+=======
+>>>>>>> c516bff34f5b7ed25fbd2e7aa7ae65d5e81165b2
           name: _SpecColor
         second: {r: 1, g: 1, b: 1, a: 0}
       data:
         first:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> c516bff34f5b7ed25fbd2e7aa7ae65d5e81165b2
           name: _Emission
         second: {r: 0, g: 0, b: 0, a: 0}
       data:
         first:
+<<<<<<< HEAD
 >>>>>>> CharacterController
+=======
+>>>>>>> c516bff34f5b7ed25fbd2e7aa7ae65d5e81165b2
           name: _TintColor
         second: {r: .679104447, g: .679104447, b: .679104447, a: .678431392}
       data:
