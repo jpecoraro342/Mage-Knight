@@ -23,6 +23,8 @@ public class MonsterStats : MonoBehaviour {
 		visionCone = 90f;
 		visionRadius = 10f;
 		seenPlayer = false;
+		attackSpeed = 1f;
+		speed = 10f;
 	}
 	
 	// Update is called once per frame

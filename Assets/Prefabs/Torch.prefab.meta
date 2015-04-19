@@ -1,6 +1,10 @@
 fileFormatVersion: 2
 guid: 5de41761f365d644c85888a745d5bc07
+<<<<<<< HEAD
 timeCreated: 1428182489
+=======
+timeCreated: 1429214068
+>>>>>>> CharacterController
 licenseType: Free
 NativeFormatImporter:
   userData: 
