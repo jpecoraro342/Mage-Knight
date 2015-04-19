@@ -35,10 +35,10 @@ public class PlayerAttacking : MonoBehaviour {
 	bool[] meleeAttacksEnabled = new bool[4] { true, true, true, false }; 
 	bool[] mageAttacksEnabled = new bool[4] { true, true, true, false };
 
-	float[] meleeAttackTime = new float[4] { .8f, .8f, .8f, 0f };
+	float[] meleeAttackTime = new float[4] { .8f, .633f, .633f, 0f };
 	float[] mageAttackTime = new float[4] { .8f, .8f, .8f, 0f };
 
-	float[] meleeAnimationTime = new float[4] { 1.05f, 1f, 1f, 0f };
+	float[] meleeAnimationTime = new float[4] { 1.167f, .633f, .633f, 0f };
 	float[] mageAnimationTime = new float[4] { 1f, 1f, 1f, 0f };
 
 	float[] mageAttackDistance = new float[4] { 20f, 20f, 20f, 0f };
@@ -55,15 +55,6 @@ public class PlayerAttacking : MonoBehaviour {
 
 	bool meleeAttacksActive = true;
 	bool mageAttacksActive = false;
-
-	//Attack Times Note: These really shouldnt be static..
-	float mageAttack1Distance = 20f;
-	
-	float Attack1Time = .8f;
-	float Attack1AnimationTime = 1.05f;
-	
-	float MageAttack1Time = .8f;
-	float MageAttack1AnimationTime = 1f;
 
 	int BaseLayerIndex = 0;
 	int MeleeAttackLayerIndex = 1;
