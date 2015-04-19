@@ -79,9 +79,13 @@ public class PlayerAttacking : MonoBehaviour {
 			altAttackPressed = true;
 			meleeAttacksActive = !meleeAttacksActive;
 			mageAttacksActive = !mageAttacksActive;
-			Debug.Log("Melee: " + meleeAttacksActive + "Mage: " + mageAttacksActive);
-			SwordEnabled.enabled = meleeAttacksActive;
-			StaffEnabled.enabled = mageAttacksActive;
+
+			if (SwordEnabled != null) {
+				SwordEnabled.enabled = meleeAttacksActive;
+			}
+			if (StaffEnabled != null) {
+				StaffEnabled.enabled = mageAttacksActive;
+			}
 		}
 		else if (!Input.GetButton(alternateAttack)) {
 			altAttackPressed = false;
