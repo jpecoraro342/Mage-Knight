@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour {
 		animator = GetComponent<Animator>();
 
 		animator.SetFloat(AnimatorSpeed, 0);
-
 		if (stats != null) {
 			stats.text = "Stats: ";
 		}
