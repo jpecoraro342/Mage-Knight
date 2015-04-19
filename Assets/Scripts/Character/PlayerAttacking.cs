@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -13,13 +14,14 @@ using System.Collections.Generic;
  * 
  */
 public class PlayerAttacking : MonoBehaviour {
-
 	Animator animator;
+
+	public Text stats;
+	public RawImage StaffEnabled;
+	public RawImage SwordEnabled;
 
 	static string EnemyTag = "Enemy";
 	static string BossTag = "Boss";
-
-	public CapsuleCollider swordCollider;
 
 	LinkedList<GameObject> enemyTargetList;
 
@@ -41,6 +43,7 @@ public class PlayerAttacking : MonoBehaviour {
 
 	float[] mageAttackDistance = new float[4] { 20f, 20f, 20f, 0f };
 	public GameObject[] mageAttackParticle = new GameObject[4];
+	public GameObject[] swordAttackWeapons = new GameObject[4];
 
 	static string alternateAttack = "AltAttack";
 
@@ -65,9 +68,7 @@ public class PlayerAttacking : MonoBehaviour {
 	int BaseLayerIndex = 0;
 	int MeleeAttackLayerIndex = 1;
 	int MageAttackLayerIndex = 2;
-
-
-
+	
 	void Awake () {
 		animator = GetComponent<Animator>();
 		enemyTargetList = new LinkedList<GameObject>();
@@ -78,6 +79,13 @@ public class PlayerAttacking : MonoBehaviour {
 			altAttackPressed = true;
 			meleeAttacksActive = !meleeAttacksActive;
 			mageAttacksActive = !mageAttacksActive;
+
+			if (SwordEnabled != null) {
+				SwordEnabled.enabled = meleeAttacksActive;
+			}
+			if (StaffEnabled != null) {
+				StaffEnabled.enabled = mageAttacksActive;
+			}
 		}
 		else if (!Input.GetButton(alternateAttack)) {
 			altAttackPressed = false;
@@ -89,11 +97,9 @@ public class PlayerAttacking : MonoBehaviour {
 				animator.SetTrigger(attackButtons[i]);
 				
 				if (meleeAttacksActive && meleeAttacksEnabled[i]) {
-					Debug.Log("Melee Attack!");
-					StartCoroutine(StartMeleeAttack(meleeAttackTime[i], meleeAnimationTime[i]));
+					StartCoroutine(StartMeleeAttack(i));
 				}
 				else if (mageAttacksActive && mageAttacksEnabled[i]) {
-					Debug.Log("Mage Attack!");
 					StartCoroutine(StartMageAttack(i));
 				}
 
@@ -103,33 +109,12 @@ public class PlayerAttacking : MonoBehaviour {
 				canAttack = true;
 			}
 		}
-
-//		if (Input.GetButton(Attack1) && !isAttacking && canAttack) {
-//			isAttacking = true;
-//			animator.SetTrigger(Attack1);
-//
-//			if (meleeAttacksActive) {
-//				Debug.Log("Melee Attack!");
-//				StartCoroutine(StartMeleeAttack(Attack1Time, Attack1AnimationTime));
-//			}
-//			else {
-//				Debug.Log("Mage Attack!");
-//				StartCoroutine(StartMageAttack());
-//			}
-//		}
-//		else if (!Input.GetButton(Attack1)) {
-//			canAttack = true;
-//		}
 	}
 
-	public void MeleeTrigger(GameObject enemy) {
-		Debug.Log("Deal Damage");
-	}
-
+	//These are for the auto targetting system
 	public void OnTriggerEnter(Collider other) {
 		GameObject triggerObject = other.gameObject;
 		if (triggerObject.tag == EnemyTag || triggerObject.tag == BossTag) {
-			Debug.Log("Enter");
 			enemyTargetList.AddLast(other.gameObject);
 		}
 	}
@@ -137,7 +122,6 @@ public class PlayerAttacking : MonoBehaviour {
 	public void OnTriggerExit(Collider other) {
 		GameObject triggerObject = other.gameObject;
 		if (triggerObject.tag == EnemyTag || triggerObject.tag == BossTag) {
-			Debug.Log("Exit");
 			enemyTargetList.Remove(other.gameObject);
 		}
 	}
@@ -167,7 +151,7 @@ public class PlayerAttacking : MonoBehaviour {
 			closestEnemyDirection = closestEnemy.transform.position;
 			float oldY = closestEnemyDirection.y;
 			closestEnemyDirection = closestEnemyDirection - transform.position;
-			closestEnemyDirection.y = oldY + .5f;
+			closestEnemyDirection.y = 0f;//oldY + .5f;
 		}
 
 		return closestEnemyDirection;
@@ -183,14 +167,16 @@ public class PlayerAttacking : MonoBehaviour {
 
 	//Attack Enumerators
 
-	IEnumerator StartMeleeAttack(float attackTime, float animationTime) {
+	IEnumerator StartMeleeAttack(int index) {
 		yield return null;
+		float attackTime = meleeAttackTime[index];
+		float animationTime = meleeAnimationTime[index];
 
 		animator.SetLayerWeight(MeleeAttackLayerIndex, 1);
-		swordCollider.enabled = true;
+		swordAttackWeapons[index].SetActive(true);
 
 		yield return new WaitForSeconds(attackTime);
-		swordCollider.enabled = false;
+		swordAttackWeapons[index].SetActive(false);
 
 		yield return new WaitForSeconds(animationTime - attackTime);
 		animator.SetLayerWeight(MeleeAttackLayerIndex, 0);
@@ -219,16 +205,15 @@ public class PlayerAttacking : MonoBehaviour {
 
 
 		Vector3 Direction = getTargetTransformDirection();
-		Debug.Log(transform.forward +  ": " + Direction);
 		attack.transform.forward = Direction;
 
+		if (stats != null) {
+			stats.text = "My Position: " + transform.position + "\nEnemy Position: " + attackTransform + "\nMy Direction: " + transform.forward + "\nDirection To Enemy: " + Direction;
+		}
 
 		yield return new WaitForSeconds(mageAttackTime[index]);
 
 		animator.SetLayerWeight(MageAttackLayerIndex, 0);
-
-		//This is handled in the objects class itself
-		//Destroy(attack.gameObject);
 
 		isAttacking = false;
 	}
