@@ -1,0 +1,1226 @@
+fileFormatVersion: 2
+guid: bfeda64184da26b479effef1188c76f1
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Creature:body
+    100004: Creature:bone
+    100006: Creature:bone1
+    100008: Creature:bone10
+    100010: Creature:bone11
+    100012: Creature:bone12
+    100014: Creature:bone13
+    100016: Creature:bone14
+    100018: Creature:bone15
+    100020: Creature:bone16
+    100022: Creature:bone17
+    100024: Creature:bone18
+    100026: Creature:bone19
+    100028: Creature:bone2
+    100030: Creature:bone20
+    100032: Creature:bone21
+    100034: Creature:bone22
+    100036: Creature:bone23
+    100038: Creature:bone24
+    100040: Creature:bone25
+    100042: Creature:bone3
+    100044: Creature:bone4
+    100046: Creature:bone5
+    100048: Creature:bone6
+    100050: Creature:bone7
+    100052: Creature:bone8
+    100054: Creature:bone9
+    100056: Creature:CENTER
+    100058: Creature:eff
+    100060: Creature:eff1
+    100062: Creature:eff10
+    100064: Creature:eff11
+    100066: Creature:eff12
+    100068: Creature:eff13
+    100070: Creature:eff14
+    100072: Creature:eff15
+    100074: Creature:eff2
+    100076: Creature:eff3
+    100078: Creature:eff4
+    100080: Creature:eff5
+    100082: Creature:eff6
+    100084: Creature:eff7
+    100086: Creature:eff8
+    100088: Creature:eff9
+    100090: Creature:head
+    100092: Creature:L_foot_01
+    100094: Creature:L_foot_02
+    100096: Creature:L_foot_03
+    100098: Creature:neck
+    100100: Creature:polymsh
+    100102: Creature:R_foot_01
+    100104: Creature:R_foot_02
+    100106: Creature:R_foot_03
+    100108: Creature:root10
+    100110: Creature:root3
+    100112: Creature:root5
+    100114: Creature:root7
+    100116: Creature:root8
+    100118: Creature:root9
+    100120: Creature:tail
+    400000: //RootNode
+    400002: Creature:body
+    400004: Creature:bone
+    400006: Creature:bone1
+    400008: Creature:bone10
+    400010: Creature:bone11
+    400012: Creature:bone12
+    400014: Creature:bone13
+    400016: Creature:bone14
+    400018: Creature:bone15
+    400020: Creature:bone16
+    400022: Creature:bone17
+    400024: Creature:bone18
+    400026: Creature:bone19
+    400028: Creature:bone2
+    400030: Creature:bone20
+    400032: Creature:bone21
+    400034: Creature:bone22
+    400036: Creature:bone23
+    400038: Creature:bone24
+    400040: Creature:bone25
+    400042: Creature:bone3
+    400044: Creature:bone4
+    400046: Creature:bone5
+    400048: Creature:bone6
+    400050: Creature:bone7
+    400052: Creature:bone8
+    400054: Creature:bone9
+    400056: Creature:CENTER
+    400058: Creature:eff
+    400060: Creature:eff1
+    400062: Creature:eff10
+    400064: Creature:eff11
+    400066: Creature:eff12
+    400068: Creature:eff13
+    400070: Creature:eff14
+    400072: Creature:eff15
+    400074: Creature:eff2
+    400076: Creature:eff3
+    400078: Creature:eff4
+    400080: Creature:eff5
+    400082: Creature:eff6
+    400084: Creature:eff7
+    400086: Creature:eff8
+    400088: Creature:eff9
+    400090: Creature:head
+    400092: Creature:L_foot_01
+    400094: Creature:L_foot_02
+    400096: Creature:L_foot_03
+    400098: Creature:neck
+    400100: Creature:polymsh
+    400102: Creature:R_foot_01
+    400104: Creature:R_foot_02
+    400106: Creature:R_foot_03
+    400108: Creature:root10
+    400110: Creature:root3
+    400112: Creature:root5
+    400114: Creature:root7
+    400116: Creature:root8
+    400118: Creature:root9
+    400120: Creature:tail
+    4300000: Creature:polymsh
+    7400000: Idle
+    7400002: Walk
+    7400004: Attack
+    7400006: Dead
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Creature:polymsh
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 60
+      lastFrame: 90
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Creature:CENTER
+        weight: 1
+      - path: Creature:CENTER/Creature:body
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:eff8
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:eff2
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:root3
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:root3/Creature:bone6
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:root3/Creature:bone6/Creature:eff3
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:eff5
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:root5
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:root5/Creature:bone9
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:root5/Creature:bone9/Creature:eff4
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:eff11
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:root8
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:root8/Creature:bone19
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:root8/Creature:bone19/Creature:eff10
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:eff13
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:root9
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:root9/Creature:bone22
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:root9/Creature:bone22/Creature:eff12
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail/Creature:bone15
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail/Creature:bone15/Creature:bone16
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail/Creature:bone15/Creature:bone16/Creature:eff9
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:eff7
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:root7
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:root7/Creature:bone12
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:root7/Creature:bone12/Creature:eff6
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:eff
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:head
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:head/Creature:bone3
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:head/Creature:bone3/Creature:eff1
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:eff15
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:root10
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:root10/Creature:bone25
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:root10/Creature:bone25/Creature:eff14
+        weight: 1
+      - path: Creature:polymsh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 5
+      lastFrame: 25
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Creature:CENTER
+        weight: 1
+      - path: Creature:CENTER/Creature:body
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:eff8
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:eff2
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:root3
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:root3/Creature:bone6
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:root3/Creature:bone6/Creature:eff3
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:eff5
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:root5
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:root5/Creature:bone9
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:root5/Creature:bone9/Creature:eff4
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:eff11
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:root8
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:root8/Creature:bone19
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:root8/Creature:bone19/Creature:eff10
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:eff13
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:root9
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:root9/Creature:bone22
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:root9/Creature:bone22/Creature:eff12
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail/Creature:bone15
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail/Creature:bone15/Creature:bone16
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail/Creature:bone15/Creature:bone16/Creature:eff9
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:eff7
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:root7
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:root7/Creature:bone12
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:root7/Creature:bone12/Creature:eff6
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:eff
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:head
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:head/Creature:bone3
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:head/Creature:bone3/Creature:eff1
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:eff15
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:root10
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:root10/Creature:bone25
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:root10/Creature:bone25/Creature:eff14
+        weight: 1
+      - path: Creature:polymsh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 25
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Creature:CENTER
+        weight: 1
+      - path: Creature:CENTER/Creature:body
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:eff8
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:eff2
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:root3
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:root3/Creature:bone6
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:root3/Creature:bone6/Creature:eff3
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:eff5
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:root5
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:root5/Creature:bone9
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:root5/Creature:bone9/Creature:eff4
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:eff11
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:root8
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:root8/Creature:bone19
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:root8/Creature:bone19/Creature:eff10
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:eff13
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:root9
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:root9/Creature:bone22
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:root9/Creature:bone22/Creature:eff12
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail/Creature:bone15
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail/Creature:bone15/Creature:bone16
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail/Creature:bone15/Creature:bone16/Creature:eff9
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:eff7
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:root7
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:root7/Creature:bone12
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:root7/Creature:bone12/Creature:eff6
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:eff
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:head
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:head/Creature:bone3
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:head/Creature:bone3/Creature:eff1
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:eff15
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:root10
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:root10/Creature:bone25
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:root10/Creature:bone25/Creature:eff14
+        weight: 1
+      - path: Creature:polymsh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Dead
+      takeName: Take 001
+      firstFrame: 95
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Creature:CENTER
+        weight: 1
+      - path: Creature:CENTER/Creature:body
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:eff8
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:eff2
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:root3
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:root3/Creature:bone6
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_02/Creature:bone4/Creature:bone5/Creature:root3/Creature:bone6/Creature:eff3
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:eff5
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:root5
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:root5/Creature:bone9
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:L_foot_03/Creature:bone7/Creature:bone8/Creature:root5/Creature:bone9/Creature:eff4
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:eff11
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:root8
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:root8/Creature:bone19
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_02/Creature:bone17/Creature:bone18/Creature:root8/Creature:bone19/Creature:eff10
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:eff13
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:root9
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:root9/Creature:bone22
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:R_foot_03/Creature:bone20/Creature:bone21/Creature:root9/Creature:bone22/Creature:eff12
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail/Creature:bone15
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail/Creature:bone15/Creature:bone16
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:bone14/Creature:tail/Creature:bone15/Creature:bone16/Creature:eff9
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:eff7
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:root7
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:root7/Creature:bone12
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:L_foot_01/Creature:bone10/Creature:bone11/Creature:root7/Creature:bone12/Creature:eff6
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:eff
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:head
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:head/Creature:bone3
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:neck/Creature:bone/Creature:bone1/Creature:bone2/Creature:head/Creature:bone3/Creature:eff1
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:eff15
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:root10
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:root10/Creature:bone25
+        weight: 1
+      - path: Creature:CENTER/Creature:body/Creature:bone13/Creature:R_foot_01/Creature:bone23/Creature:bone24/Creature:root10/Creature:bone25/Creature:eff14
+        weight: 1
+      - path: Creature:polymsh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .300000012
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: Creature:bone13
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone10
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone11
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone1
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone12
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone2
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone14
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone7
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone8
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone18
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone4
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone19
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone5
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone6
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone3
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Creature:bone9
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: CaveWorm_anim(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:CENTER
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:body
+      position: {x: 4.9839508e-17, y: .944145322, z: .539438903}
+      rotation: {x: -0, y: -.707106829, z: 0, w: .707106829}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone13
+      position: {x: -.594017804, y: .352105021, z: -.168554127}
+      rotation: {x: -.10481704, y: -.501383662, z: .721137941, w: -.466463149}
+      scale: {x: .999999881, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:L_foot_01
+      position: {x: -.243438572, y: -.371823996, z: .272728503}
+      rotation: {x: .253893584, y: .817550361, z: -.153292596, w: .493609995}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone10
+      position: {x: -0, y: -8.32667302e-18, z: 0}
+      rotation: {x: -2.23517436e-08, y: 2.98023259e-08, z: -.279596031, w: .960117757}
+      scale: {x: .999999821, y: .99999994, z: 1.00000048}
+      transformModified: 1
+    - name: Creature:bone11
+      position: {x: -.900000036, y: -6.66133841e-17, z: 0}
+      rotation: {x: -.0321484245, y: .0408553444, z: .293868572, w: .954430997}
+      scale: {x: 1, y: 1, z: .999999762}
+      transformModified: 1
+    - name: Creature:eff7
+      position: {x: -.540000021, y: -3.1695091e-08, z: 1.18883525e-08}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:root7
+      position: {x: -.59341073, y: .00829812512, z: 0}
+      rotation: {x: -1.73472348e-18, y: -1.62630326e-18, z: -.358485401, w: .933535337}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone12
+      position: {x: -0, y: 3.33066921e-17, z: 0}
+      rotation: {x: .52574867, y: -.539783537, z: .593499064, w: .282809019}
+      scale: {x: 1, y: .999999762, z: 1.00000024}
+      transformModified: 1
+    - name: Creature:eff6
+      position: {x: -.412514597, y: 3.41802231e-09, z: -2.66453536e-16}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:neck
+      position: {x: .0294440333, y: .251818359, z: -7.28935627e-18}
+      rotation: {x: 1.11022302e-16, y: -6.10622664e-16, z: -.296581477, w: .955007553}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone
+      position: {x: -6.66133841e-17, y: -5.82867128e-17, z: 0}
+      rotation: {x: .255864203, y: .351824969, z: -.741120219, w: .511364579}
+      scale: {x: 1.00000012, y: 1, z: .999999881}
+      transformModified: 1
+    - name: Creature:bone1
+      position: {x: -.339820087, y: -1.33226768e-16, z: 4.16333651e-18}
+      rotation: {x: -5.96046377e-08, y: 8.94069601e-08, z: -.0740529224, w: .997254312}
+      scale: {x: .999999821, y: .999999881, z: 1}
+      transformModified: 1
+    - name: Creature:bone2
+      position: {x: -.461022586, y: 6.66133841e-17, z: -1.6653346e-17}
+      rotation: {x: .447078973, y: .249277279, z: -.430173606, w: -.743593931}
+      scale: {x: 1.00000012, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: Creature:eff
+      position: {x: -.393789172, y: -4.245112e-08, z: -2.4480542e-09}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:head
+      position: {x: -.507953465, y: .103440769, z: -5.29286219e-16}
+      rotation: {x: 1.11022302e-16, y: -1.11022302e-16, z: .85376519, w: .520658255}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone3
+      position: {x: -0, y: 6.66133841e-17, z: 1.6653346e-17}
+      rotation: {x: -3.54889771e-08, y: 1.95811953e-08, z: -.984490454, w: -.175438404}
+      scale: {x: .999999702, y: .999999523, z: .999999881}
+      transformModified: 1
+    - name: Creature:eff1
+      position: {x: -.595555007, y: -2.7782626e-08, z: -3.08873838e-09}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:R_foot_01
+      position: {x: -.243438572, y: -.371823996, z: -.272728503}
+      rotation: {x: .253893584, y: .817550361, z: .153292596, w: -.493609995}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone23
+      position: {x: 3.33066921e-17, y: -1.6653346e-17, z: 0}
+      rotation: {x: 3.72529065e-08, y: -1.4901163e-08, z: -.27959609, w: .960117757}
+      scale: {x: .999999881, y: .999999821, z: 1.00000012}
+      transformModified: 1
+    - name: Creature:bone24
+      position: {x: -.900000036, y: 0, z: 6.66133841e-17}
+      rotation: {x: -1.86264515e-08, y: 7.82310963e-08, z: .629316986, w: .777148783}
+      scale: {x: 1.00000012, y: .999999881, z: 1.00000012}
+      transformModified: 1
+    - name: Creature:eff15
+      position: {x: -.540000021, y: 1.03227293e-08, z: -7.73774467e-09}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:root10
+      position: {x: -.59341073, y: .00829812512, z: 0}
+      rotation: {x: 1.73472348e-18, y: 1.62630326e-18, z: -.358485401, w: .933535337}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone25
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -2.002343e-08, y: -2.3283059e-08, z: .64710629, w: .762399733}
+      scale: {x: 1.00000012, y: 1.00000024, z: .999999821}
+      transformModified: 1
+    - name: Creature:eff14
+      position: {x: -.412514597, y: 1.176124e-08, z: -2.66453536e-16}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone14
+      position: {x: -.363167763, y: 0, z: 0}
+      rotation: {x: .0390410833, y: -.470335007, z: -.141048089, w: .870267928}
+      scale: {x: 1, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: Creature:eff8
+      position: {x: -.567255139, y: 8.12296186e-09, z: 1.66626105e-17}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:L_foot_02
+      position: {x: -.199844822, y: -.226331934, z: .428685188}
+      rotation: {x: .022939926, y: .72035569, z: -.0220647678, w: .692874134}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone4
+      position: {x: 2.39391843e-17, y: -7.02563041e-18, z: 0}
+      rotation: {x: .0326503962, y: .142523348, z: .311056316, w: .939076722}
+      scale: {x: .999999762, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: Creature:bone5
+      position: {x: -.996089637, y: 9.57567372e-17, z: 0}
+      rotation: {x: -.00312386896, y: .00396976201, z: .0318598188, w: .999479592}
+      scale: {x: .99999994, y: 1.00000012, z: .999999881}
+      transformModified: 1
+    - name: Creature:eff2
+      position: {x: -.540000021, y: -3.35314141e-08, z: 1.03077333e-08}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:root3
+      position: {x: -.59341073, y: .00829812512, z: 0}
+      rotation: {x: -1.73472348e-18, y: -1.62630326e-18, z: -.358485401, w: .933535337}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone6
+      position: {x: 9.99200762e-17, y: -2.60208538e-17, z: 0}
+      rotation: {x: -.00144930545, y: .0933554247, z: .605724335, w: .790177703}
+      scale: {x: 1.00000024, y: .999999821, z: 1}
+      transformModified: 1
+    - name: Creature:eff3
+      position: {x: -.412514567, y: -2.11464855e-08, z: 1.33226768e-16}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:L_foot_03
+      position: {x: -.740780175, y: -.191844493, z: .372367471}
+      rotation: {x: .0168211292, y: .528214276, z: -.0270211734, w: .848514318}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone7
+      position: {x: -3.33066921e-17, y: -6.24500476e-18, z: 0}
+      rotation: {x: -.0822456628, y: -.359013796, z: .0381013751, w: .928920388}
+      scale: {x: 1, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: Creature:bone8
+      position: {x: -1.05000007, y: 2.16493495e-16, z: 0}
+      rotation: {x: 1.86264515e-08, y: 4.84287739e-08, z: .629316866, w: .777148902}
+      scale: {x: .99999994, y: .999999881, z: .99999994}
+      transformModified: 1
+    - name: Creature:eff5
+      position: {x: -.540000021, y: 1.7393738e-08, z: -1.10248735e-08}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:root5
+      position: {x: -.59341073, y: .00829812512, z: 0}
+      rotation: {x: -1.73472348e-18, y: -1.62630326e-18, z: -.358485401, w: .933535337}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone9
+      position: {x: -0, y: 9.57567372e-17, z: 0}
+      rotation: {x: 3.8184222e-08, y: 6.61238957e-08, z: .647106409, w: .762399733}
+      scale: {x: .999999821, y: .999999881, z: 1}
+      transformModified: 1
+    - name: Creature:eff4
+      position: {x: -.412514567, y: -1.55287054e-08, z: 6.66133841e-17}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:R_foot_02
+      position: {x: -.199844822, y: -.226331934, z: -.428685188}
+      rotation: {x: -.022939926, y: -.72035569, z: -.0220647678, w: .692874134}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone17
+      position: {x: -1.74339713e-17, y: -6.50521303e-19, z: 0}
+      rotation: {x: -1.17836603e-08, y: 2.9195327e-08, z: .223303214, w: -.974749029}
+      scale: {x: .999999702, y: 1, z: .999999762}
+      transformModified: 1
+    - name: Creature:bone18
+      position: {x: -.996089637, y: 5.82867128e-17, z: 3.33066921e-17}
+      rotation: {x: -.117623009, y: .149479702, z: .0387596227, w: .98097831}
+      scale: {x: 1, y: 1.00000024, z: 1.00000036}
+      transformModified: 1
+    - name: Creature:eff11
+      position: {x: -.540000021, y: -2.69909446e-08, z: -2.27349428e-09}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:root8
+      position: {x: -.59341073, y: .00829812512, z: 0}
+      rotation: {x: 1.73472348e-18, y: 1.62630326e-18, z: -.358485401, w: .933535337}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone19
+      position: {x: 6.66133841e-17, y: -1.6653346e-17, z: 0}
+      rotation: {x: -.0286194887, y: .0337184928, z: .249211133, w: .967438817}
+      scale: {x: .999999642, y: .999999881, z: 1}
+      transformModified: 1
+    - name: Creature:eff10
+      position: {x: -.412514567, y: -2.11464855e-08, z: 6.66133841e-17}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:R_foot_03
+      position: {x: -.740780175, y: -.191844493, z: -.372367471}
+      rotation: {x: -.0168211292, y: -.528214276, z: -.0270211734, w: .848514318}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone20
+      position: {x: -3.33066921e-17, y: 9.36750694e-18, z: 0}
+      rotation: {x: 3.53676666e-09, y: 3.06125543e-08, z: .223303169, w: -.974749088}
+      scale: {x: .99999994, y: .999999821, z: 1}
+      transformModified: 1
+    - name: Creature:bone21
+      position: {x: -1.05000007, y: -2.33146851e-16, z: 1.33226768e-16}
+      rotation: {x: 3.72528985e-09, y: -2.04890949e-08, z: .629316807, w: .777148843}
+      scale: {x: 1.00000048, y: 1.00000012, z: 1.00000012}
+      transformModified: 1
+    - name: Creature:eff13
+      position: {x: -.540000021, y: -3.11633663e-10, z: 4.25241042e-09}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:root9
+      position: {x: -.59341073, y: .00829812512, z: 0}
+      rotation: {x: 1.73472348e-18, y: 1.62630326e-18, z: -.358485401, w: .933535337}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone22
+      position: {x: -1.99840152e-16, y: 3.33066921e-17, z: 0}
+      rotation: {x: 3.8184222e-08, y: 5.96046377e-08, z: .647106469, w: .762399673}
+      scale: {x: .99999994, y: 1.00000012, z: 1.00000024}
+      transformModified: 1
+    - name: Creature:eff12
+      position: {x: -.412514597, y: -1.75030124e-08, z: -3.33066907e-16}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:tail
+      position: {x: -.644738078, y: .0881205201, z: -2.58957496e-15}
+      rotation: {x: -1.07865114e-14, y: -2.22044631e-16, z: -.0318291448, w: .999493361}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:bone15
+      position: {x: -0, y: 4.16333634e-17, z: 0}
+      rotation: {x: 5.38269067e-15, y: -4.30338451e-16, z: .0399423875, w: .999202013}
+      scale: {x: .999999762, y: .999999821, z: .999999702}
+      transformModified: 1
+    - name: Creature:bone16
+      position: {x: -.452163905, y: -1.16573426e-16, z: 2.36658281e-31}
+      rotation: {x: -3.72528985e-09, y: 2.98023188e-08, z: .362392962, w: .932025492}
+      scale: {x: 1.00000012, y: .999999762, z: 1.00000012}
+      transformModified: 1
+    - name: Creature:eff9
+      position: {x: -.714727283, y: 1.84268867e-08, z: -2.40786532e-16}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Creature:polymsh
+      position: {x: 4.9839508e-17, y: 2.13386011, z: .813967764}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
