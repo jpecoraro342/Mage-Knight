@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class MonsterStats : MonoBehaviour {
-	public int maxHealth;
-	public int currentHealth;
+	public float maxHealth;
+	public float currentHealth;
 	public int monsterDamage;
 	public bool isDead;
 	public float attackSpeed;

@@ -34,8 +34,10 @@ public class MageProjectileAttack : MonoBehaviour {
 			damageSystem.transform.localPosition = damageSystemPosition;
 			damageSystem.transform.localScale = new Vector3(1, 1, 1);
 
-			//TODO: Deal Damage
-
+			MonsterHealth health = otherobj.GetComponent<MonsterHealth>();
+			if (health != null) {
+				health.TakeDamage(damage*damageMultiplier);
+			}
 		}
 	}
 
