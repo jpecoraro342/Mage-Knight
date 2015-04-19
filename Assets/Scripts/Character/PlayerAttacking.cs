@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -13,13 +14,12 @@ using System.Collections.Generic;
  * 
  */
 public class PlayerAttacking : MonoBehaviour {
-
 	Animator animator;
+
+	public Text stats;
 
 	static string EnemyTag = "Enemy";
 	static string BossTag = "Boss";
-
-	public GameObject sword;
 
 	LinkedList<GameObject> enemyTargetList;
 
@@ -88,11 +88,9 @@ public class PlayerAttacking : MonoBehaviour {
 				animator.SetTrigger(attackButtons[i]);
 				
 				if (meleeAttacksActive && meleeAttacksEnabled[i]) {
-					Debug.Log("Melee Attack!");
 					StartCoroutine(StartMeleeAttack(i));
 				}
 				else if (mageAttacksActive && mageAttacksEnabled[i]) {
-					Debug.Log("Mage Attack!");
 					StartCoroutine(StartMageAttack(i));
 				}
 
@@ -108,7 +106,6 @@ public class PlayerAttacking : MonoBehaviour {
 	public void OnTriggerEnter(Collider other) {
 		GameObject triggerObject = other.gameObject;
 		if (triggerObject.tag == EnemyTag || triggerObject.tag == BossTag) {
-			Debug.Log("Enter");
 			enemyTargetList.AddLast(other.gameObject);
 		}
 	}
@@ -116,7 +113,6 @@ public class PlayerAttacking : MonoBehaviour {
 	public void OnTriggerExit(Collider other) {
 		GameObject triggerObject = other.gameObject;
 		if (triggerObject.tag == EnemyTag || triggerObject.tag == BossTag) {
-			Debug.Log("Exit");
 			enemyTargetList.Remove(other.gameObject);
 		}
 	}
@@ -146,7 +142,7 @@ public class PlayerAttacking : MonoBehaviour {
 			closestEnemyDirection = closestEnemy.transform.position;
 			float oldY = closestEnemyDirection.y;
 			closestEnemyDirection = closestEnemyDirection - transform.position;
-			closestEnemyDirection.y = oldY + .5f;
+			closestEnemyDirection.y = 0f;//oldY + .5f;
 		}
 
 		return closestEnemyDirection;
@@ -200,9 +196,11 @@ public class PlayerAttacking : MonoBehaviour {
 
 
 		Vector3 Direction = getTargetTransformDirection();
-		Debug.Log(transform.forward +  ": " + Direction);
 		attack.transform.forward = Direction;
 
+		if (stats != null) {
+			stats.text = "My Position: " + transform.position + "\nEnemy Position: " + attackTransform + "\nMy Direction: " + transform.forward + "\nDirection To Enemy: " + Direction;
+		}
 
 		yield return new WaitForSeconds(mageAttackTime[index]);
 
