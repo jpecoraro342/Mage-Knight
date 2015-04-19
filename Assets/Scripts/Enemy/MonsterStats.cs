@@ -15,7 +15,6 @@ public class MonsterStats : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		maxHealth = 50;
 		currentHealth = maxHealth;
 		monsterDamage = 10;
 		isDead = false;

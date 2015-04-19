@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupDistance: 1
+  pickupDelayTime: 2
 --- !u!135 &13592646
 SphereCollider:
   m_ObjectHideFlags: 1

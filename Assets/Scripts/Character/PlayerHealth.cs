@@ -66,7 +66,13 @@ public class PlayerHealth : MonoBehaviour
 		damaged = true;
 		
 		// Reduce the current health by the damage amount.
-		currentHealth -= amount;
+		if (currentHealth > 0) {
+			if (currentHealth - amount < 0) {
+				currentHealth = 0;
+			} else {
+				currentHealth -= amount;
+			}
+		}
 		
 		// Set the health bar's value to the current health.
 		healthSlider.value = currentHealth;
@@ -81,9 +87,19 @@ public class PlayerHealth : MonoBehaviour
 			Death ();
 		}
 	}
+
+	public void gainHealth(int health){
+		if (currentHealth < startingHealth) {
+			if (currentHealth + health >= startingHealth) {
+				currentHealth = startingHealth;
+			} else {
+				currentHealth += health;
+			}
+		}
+	}
 	
 	
-	void Death ()
+	void Death()
 	{
 		// Set the death flag so this function won't be called again.
 		isDead = true;
