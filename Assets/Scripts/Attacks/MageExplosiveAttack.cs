@@ -9,6 +9,9 @@ public class MageExplosiveAttack : MonoBehaviour {
 
 	public float startTime = 0f; //For the particle system  
 	public float projectileLife = 1f;
+
+	public float damage = 13;
+	public float damageMultiplier = 1;
 	
 	public GameObject damageObject;
 	public ParticleSystem attackSystem;
@@ -46,6 +49,11 @@ public class MageExplosiveAttack : MonoBehaviour {
 			
 			damageSystem.transform.localPosition = damageSystemPosition;
 			damageSystem.transform.localScale = new Vector3(1, 1, 1);
+
+			MonsterHealth health = enemy.GetComponent<MonsterHealth>();
+			if (health != null) {
+				health.TakeDamage(damage*damageMultiplier);
+			}
 		}
 	}
 	

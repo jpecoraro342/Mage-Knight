@@ -7,8 +7,6 @@ TagManager:
   - Ground
   - Enemy
   - Boss
-  - Credits
-  - MainMenu
   layers:
   - Default
   - TransparentFX
