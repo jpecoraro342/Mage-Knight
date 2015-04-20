@@ -65,10 +65,11 @@ public class SummonerAttack : MonoBehaviour {
 		else{
 			if (controller.canSeePlayer() && Time.time - summonTime > summonDelay && !stats.isDead){
 				summonTime = Time.time;
+				Vector3 midpoint = Vector3.Lerp(this.transform.position, player.transform.position,0.5f);
 				Vector3 direction = this.transform.position - player.transform.position;
 				direction.Normalize ();
-				Debug.DrawLine (this.transform.position, player.transform.position, Color.white, 1000);
-				summonGroll (direction * 10, Quaternion.LookRotation (-1 * direction));
+				//Debug.DrawLine (this.transform.position, player.transform.position, Color.white, 1000);
+				summonGroll (midpoint, Quaternion.LookRotation (-1 * direction));
 			}
 			anim.speed = 1;
 		}

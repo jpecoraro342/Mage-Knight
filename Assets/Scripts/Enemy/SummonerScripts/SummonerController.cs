@@ -19,6 +19,7 @@ public class SummonerController : MonoBehaviour {
 	OffMeshLinkData jumpLink;
 	
 	bool traversingLink = false;
+	bool sawPlayer;
 	MonsterStats stats;
 	
 	
@@ -32,6 +33,7 @@ public class SummonerController : MonoBehaviour {
 		rigidbody = GetComponent<Rigidbody> ();
 		
 		player = GameObject.FindGameObjectWithTag ("Player");
+		sawPlayer = false;
 		//statsText = GameObject.FindGameObjectWithTag ("SummonerStats").GetComponent<GUIText>();
 		
 	}
@@ -46,7 +48,9 @@ public class SummonerController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (navmeshAgent.enabled && canSeePlayer ())
-			pursuePlayer ();   //for performance, set it to player's position every x seconds instead of every frame?
+			pursuePlayer (); 
+
+		//for performance, set it to player's position every x seconds instead of every frame?
 		animator.SetFloat ("speed", this.navmeshAgent.velocity.magnitude);
 		/*statsText.text = "\nnavMeshSpeed: " + this.navmeshAgent.velocity.magnitude + 
 			"\n\tnavmeshAgent.isOnOffMeshLink: " + navmeshAgent.isOnOffMeshLink + 
