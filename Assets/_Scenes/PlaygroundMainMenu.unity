@@ -735,8 +735,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &108288247
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1070,8 +1070,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &155933985
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1814,8 +1814,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &302129204
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2222,8 +2222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &391020117
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2562,8 +2562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &459514544
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2965,8 +2965,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &517220188
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3312,7 +3312,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: e9c3d620afef1824181f9e16ee62b807, type: 2}
+  - {fileID: 2100000, guid: fad2b174bde144e59b39a6e5a9def882, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -4173,8 +4173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &667498396
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4644,8 +4644,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &749717861
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5304,8 +5304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &916083317
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5464,8 +5464,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &940596015
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6116,8 +6116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!54 &1032227788
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6334,8 +6334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &1046542477
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7357,8 +7357,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &1220651660
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8730,8 +8730,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &1484905234
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10213,8 +10213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &1817628839
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -11508,8 +11508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &2109748047
 NavMeshAgent:
   m_ObjectHideFlags: 0

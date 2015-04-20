@@ -10,7 +10,6 @@ public class SwordTrigger : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == EnemyTag || other.gameObject.tag == BossTag) {
-			playerAttackScript.MeleeTrigger(other.gameObject);
 		}
 	}
 }
