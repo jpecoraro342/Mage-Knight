@@ -11,7 +11,7 @@ Mage Knight is a top down RPG Dungeon Crawler in which you, the Mage Knight figh
 The Mage Knight has both a Melee and Ranged attack for each of three different elements (Fire, Electricity, and Ice). 
 
 ### System Requirements
-Recommended
+**Recommended**
 * Intel Core i3 @ 2.4Ghz or Better
 * 4gb DDR3
 * Nvidia GTX 630 or better
@@ -19,7 +19,7 @@ Recommended
 ### Controls
 This game is designed to be used with a PS3 Controller (Mac OS X, Linux) or an Xbox Controller (Windows)
 
-Xbox Controls
+**Xbox**
 
 * Start Button - Pause
 * Left Analog Stick - Move
@@ -27,7 +27,7 @@ Xbox Controls
 * A - Jump
 * X, Y, B - Attack
 
-PS3 Controls
+**PS3**
 
 * Start Button - Pause
 * Left Analog Stick - Move
@@ -35,7 +35,7 @@ PS3 Controls
 * X - Jump
 * Square, Triangle, Circle - Attack
 
-Keyboard Controls
+**Keyboard**
 
 * Escape - Pause
 * Arrow Keys or WASD - Move
