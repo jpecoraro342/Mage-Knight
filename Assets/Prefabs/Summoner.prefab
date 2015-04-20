@@ -1873,8 +1873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcb77f6c276e5345b0d06cd06cd69b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 0
+  maxHealth: 300
+  currentHealth: 300
   monsterDamage: 30
   isDead: 0
   attackSpeed: 1
@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6052b3eb6041547a9b0e71d13d8e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  summonDelay: 2
+  summonDelay: 1
   isAttacking: 0
   Groll: {fileID: 411084, guid: 192ee19c95d29de44922d955d51cad72, type: 2}
 --- !u!136 &13654650
