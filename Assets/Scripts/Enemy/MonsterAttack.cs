@@ -30,6 +30,7 @@ public class MonsterAttack : MonoBehaviour {
 
 	public void tryDealingDamage(){
 		if (isAttacking) {
+
 			player.GetComponent<PlayerHealth>().TakeDamage(stats.monsterDamage);
 		}
 	}
