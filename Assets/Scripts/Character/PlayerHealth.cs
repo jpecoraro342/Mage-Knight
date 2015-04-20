@@ -14,7 +14,6 @@ public class PlayerHealth : MonoBehaviour
 	public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
 	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
 	
-	
 	Animator anim;                                              // Reference to the Animator component.
 	AudioSource playerAudio;                                    // Reference to the AudioSource component.
 	PlayerMovement playerMovement;                              // Reference to the player's movement.
@@ -68,6 +67,8 @@ public class PlayerHealth : MonoBehaviour
 		
 		// Reduce the current health by the damage amount.
 		if (currentHealth > 0) {
+			playerAudio.clip = painClip;
+			playerAudio.Play ();
 			if (currentHealth - amount < 0) {
 				currentHealth = 0;
 			} else {
@@ -78,8 +79,7 @@ public class PlayerHealth : MonoBehaviour
 		//healthSlider.value = currentHealth;
 		
 		// Play the hurt sound effect.
-		playerAudio.clip = painClip;
-		playerAudio.Play ();
+
 		
 		// If the player has lost all it's health and the death flag hasn't been set yet...
 		if(currentHealth <= 0 && !isDead)
@@ -118,13 +118,8 @@ public class PlayerHealth : MonoBehaviour
 		anim.SetTrigger ("Die");
 		
 		// Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
-<<<<<<< HEAD
-		//playerAudio.clip = deathClip;
-		//playerAudio.Play ();
-=======
 		playerAudio.clip = deathClip;
 		playerAudio.Play ();
->>>>>>> d1ae3ec5e027621e5f89dd5560c7fa81b5823878
 		
 		// Turn off the movement and shooting scripts.
 		playerMovement.enabled = false;

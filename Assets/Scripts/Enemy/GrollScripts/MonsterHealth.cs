@@ -31,9 +31,11 @@ public class MonsterHealth : MonoBehaviour {
 	void Update () {
 		if (stats.currentHealth <= 0) {
 			agent.enabled = false;
-			monsterAudio.clip = monsterDeath;
-			monsterAudio.Play();
+
 			if (!stats.isDead){
+				monsterAudio.clip = monsterDeath;
+				monsterAudio.Play();
+
 				animator.SetTrigger("dead");
 				stats.isDead = true;
 				deathTime = Time.time;

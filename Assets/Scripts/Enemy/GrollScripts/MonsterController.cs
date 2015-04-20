@@ -19,14 +19,17 @@ public class MonsterController : MonoBehaviour {
 	float atkTime = 0f;
 
 	OffMeshLinkData jumpLink;
-
+	public AudioClip alertSound;
+	bool hasAlertPlayed = false;
 	bool traversingLink = false;
 	MonsterStats stats;
+	AudioSource monsterAudio;
 
 
 	void Awake(){
 		stats = GetComponent<MonsterStats> ();
 		animator = GetComponent<Animator> ();
+		monsterAudio = GetComponent<AudioSource> ();
 		animator.SetBool ("grounded", grounded);
 		animator.SetFloat ("speed", 0f);
 
@@ -38,7 +41,6 @@ public class MonsterController : MonoBehaviour {
 
 	}
 	void Start () {
-
 		navmeshAgent.enabled = true;
 		//navmeshAgent.destination = player.transform.position;
 		navmeshAgent.autoTraverseOffMeshLink = false;
@@ -80,14 +82,18 @@ public class MonsterController : MonoBehaviour {
 		if (angle < stats.visionCone && playerDistance () < stats.visionRadius) {
 			RaycastHit hit;
 			Physics.Raycast (raySource, targetDir, out hit);
-			if (hit.collider.transform.root != null){
+			if (hit.collider != null){
 				if (hit.collider.transform.root == player.transform.root){
 					if(stats.seenPlayer == false){
 						stats.visionCone = 360;
 						stats.visionRadius = 50;
 					}
 					stats.seenPlayer = true;
-
+					if(!hasAlertPlayed){
+						monsterAudio.clip = alertSound;
+						monsterAudio.Play();
+						hasAlertPlayed = true;
+					}
 					result = true;
 				}
 			}
