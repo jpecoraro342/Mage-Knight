@@ -97,6 +97,10 @@ public class PlayerHealth : MonoBehaviour
 			}
 		}
 	}
+
+	public bool getIsDead() {
+		return isDead;
+	}
 	
 	
 	void Death()
@@ -112,10 +116,18 @@ public class PlayerHealth : MonoBehaviour
 		
 		// Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
 		//playerAudio.clip = deathClip;
-		playerAudio.Play ();
+		//playerAudio.Play ();
 		
 		// Turn off the movement and shooting scripts.
 		playerMovement.enabled = false;
 	//	playerShooting.enabled = false;
-	}       
+
+		StartCoroutine(DelayReloadLevel(3f));
+	} 
+
+	IEnumerator DelayReloadLevel(float time) {
+		yield return null;
+		yield return new WaitForSeconds(time);
+		Application.LoadLevel(Application.loadedLevel);
+	}
 }

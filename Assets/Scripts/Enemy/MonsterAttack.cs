@@ -9,11 +9,14 @@ public class MonsterAttack : MonoBehaviour {
 	MonsterStats stats;
 	public bool isAttacking;
 
+	PlayerHealth playerHealth;
+
 	float atkTime = 0f;
 	// Use this for initialization
 	void Start () {
 		isAttacking = false;
 		player = GameObject.FindGameObjectWithTag ("Player");
+		playerHealth = player.GetComponent<PlayerHealth>();
 		anim = GetComponent<Animator> ();
 		rigid = GetComponent<Rigidbody> ();
 		nav = GetComponent<NavMeshAgent> ();
@@ -27,20 +30,20 @@ public class MonsterAttack : MonoBehaviour {
 
 	public void tryDealingDamage(){
 		if (isAttacking) {
-			player.GetComponent<PlayerHealth>().TakeDamage(stats.monsterDamage);
+			playerHealth.TakeDamage(stats.monsterDamage);
 		}
 	}
 
 
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "PlayerHitBox") {
-			player.GetComponent<PlayerHealth>().TakeDamage(stats.monsterDamage);
+			playerHealth.TakeDamage(stats.monsterDamage);
 		}
 	}
 
 	void checkAttack(){
 		//animator.SetBool ("grabweapon", true);
-		if ((player.transform.position - this.transform.position).magnitude < 3 && !stats.isDead ) {
+		if ((player.transform.position - this.transform.position).magnitude < 3 && !stats.isDead && !playerHealth.getIsDead()) {
 			if ((Time.time - atkTime) > 1/stats.attackSpeed){
 				anim.SetFloat ("random", Random.Range(0, 4));
 				atkTime = Time.time;

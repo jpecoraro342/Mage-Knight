@@ -37,7 +37,7 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void exitGame() {
-
+		Application.LoadLevel(0);
 	}
 
 	public void unPause() {
