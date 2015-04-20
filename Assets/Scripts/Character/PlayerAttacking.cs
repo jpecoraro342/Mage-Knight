@@ -120,16 +120,7 @@ public class PlayerAttacking : MonoBehaviour {
 	}
 
 	public void enemyHasDied(GameObject enemy) {
-		Debug.Log("before");
-		foreach (GameObject enemy2 in enemyTargetList) {
-			Debug.Log(enemy2);
-		}
-
 		enemyTargetList.Remove(enemy);
-		Debug.Log("after");
-		foreach (GameObject enemy2 in enemyTargetList) {
-			Debug.Log(enemy2);
-		}
 	}
 
 	GameObject getClosestEnemy() {
