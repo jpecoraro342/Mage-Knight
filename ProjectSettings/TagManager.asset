@@ -5,8 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - MonsterStats
   - Enemy
   - Boss
+  - Fire
+  - MonsterWeapon
+  - PlayerHitBox
   layers:
   - Default
   - TransparentFX

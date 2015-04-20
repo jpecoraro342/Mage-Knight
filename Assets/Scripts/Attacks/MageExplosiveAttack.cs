@@ -41,6 +41,7 @@ public class MageExplosiveAttack : MonoBehaviour {
 		foreach (GameObject enemy in enemyTargetList) {
 			//deal damge
 			Debug.Log("Deal Damage");
+			enemy.GetComponent<MonsterHealth>().TakeDamage(18);
 			Vector3 damageSystemPosition = Vector3.zero;
 			damageSystemPosition.y += .5f;
 			
