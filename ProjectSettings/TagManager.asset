@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - MonsterStats
   - Enemy
   - Boss
   - Fire
@@ -15,7 +14,7 @@ TagManager:
   - Barrier2
   - Barrier3
   - BossFlame
-
+  - BossFlame
   layers:
   - Default
   - TransparentFX

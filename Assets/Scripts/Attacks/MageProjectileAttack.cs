@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class MageProjectileAttack : MonoBehaviour {
+	static string EnemyTag = "Enemy";
+	static string BossTag = "Boss";
 
 	public float speed = 2f;
 	public float projectileLife = 1f;
@@ -22,7 +24,7 @@ public class MageProjectileAttack : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		GameObject otherobj = other.gameObject;
-		if (otherobj.tag == "Enemy") {
+		if (otherobj.tag == EnemyTag || otherobj.tag == BossTag) {
 			Debug.Log("Deal Damage");
 
 			otherobj.GetComponent<MonsterHealth>().TakeDamage(20);
