@@ -8,6 +8,9 @@ TagManager:
   - MonsterStats
   - Enemy
   - Boss
+  - Fire
+  - MonsterWeapon
+  - PlayerHitBox
   layers:
   - Default
   - TransparentFX

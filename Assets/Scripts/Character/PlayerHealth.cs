@@ -24,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
 	
 	void Awake ()
 	{
+		isDead = false;
 		// Setting up the references.
 		anim = GetComponent <Animator> ();
 		playerAudio = GetComponent <AudioSource> ();
@@ -73,12 +74,11 @@ public class PlayerHealth : MonoBehaviour
 				currentHealth -= amount;
 			}
 		}
-		
 		// Set the health bar's value to the current health.
 		healthSlider.value = currentHealth;
 		
 		// Play the hurt sound effect.
-		playerAudio.Play ();
+		//playerAudio.Play ();
 		
 		// If the player has lost all it's health and the death flag hasn't been set yet...
 		if(currentHealth <= 0 && !isDead)
@@ -103,7 +103,7 @@ public class PlayerHealth : MonoBehaviour
 	{
 		// Set the death flag so this function won't be called again.
 		isDead = true;
-		
+		Debug.Log ("DEATH");
 		// Turn off any remaining shooting effects.
 		//	playerShooting.DisableEffects ();
 		

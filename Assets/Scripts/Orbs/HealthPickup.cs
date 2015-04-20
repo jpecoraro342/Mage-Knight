@@ -48,7 +48,7 @@ public class HealthPickup : MonoBehaviour {
 						pickupable = true;
 		if ((player.transform.position - this.transform.position).magnitude < this.pickupDistance && pickupable && !playerAtMaxHealth ()) {
 
-			//player.gainHealth(healthAmount);
+			player.GetComponent<PlayerHealth>().gainHealth(healthAmount);
 			DestroyObject (this.gameObject);
 		}
 	}
