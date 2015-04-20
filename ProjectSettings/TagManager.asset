@@ -8,6 +8,12 @@ TagManager:
   - Enemy
   - Boss
   - Fire
+  - MonsterWeapon
+  - PlayerHitBox
+  - Barrier1
+  - Barrier2
+  - Barrier3
+  - BossFlame
   - BossFlame
   layers:
   - Default

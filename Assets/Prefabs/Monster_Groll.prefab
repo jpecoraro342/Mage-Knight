@@ -2918,7 +2918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  monsterDamage: 10
+  monsterDamage: 3
   isDead: 0
   attackSpeed: 1
   speed: 10
