@@ -78,14 +78,16 @@ public class MonsterController : MonoBehaviour {
 		if (angle < stats.visionCone && playerDistance () < stats.visionRadius) {
 			RaycastHit hit;
 			Physics.Raycast (raySource, targetDir, out hit);
-			if (hit.collider.transform.root == player.transform.root){
-				if(stats.seenPlayer == false){
-					stats.visionCone = 360;
-					stats.visionRadius = 50;
-				}
-				stats.seenPlayer = true;
+			if (hit.collider.transform.root != null){
+				if (hit.collider.transform.root == player.transform.root){
+					if(stats.seenPlayer == false){
+						stats.visionCone = 360;
+						stats.visionRadius = 50;
+					}
+					stats.seenPlayer = true;
 
-				result = true;
+					result = true;
+				}
 			}
 		}
 		return result;
