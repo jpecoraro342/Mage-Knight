@@ -14,8 +14,12 @@ public class MonsterHealth : MonoBehaviour {
 
 	private Rigidbody rigid;
 
+	bool hasNotifiedPlayerOfDeath;
+
 	// Use this for initialization
 	void Start () {
+		hasNotifiedPlayerOfDeath = false;
+
 		stats = GetComponent<MonsterStats> ();
 		player = GameObject.FindGameObjectWithTag ("Player");
 		animator = GetComponent<Animator> ();
@@ -37,6 +41,12 @@ public class MonsterHealth : MonoBehaviour {
 				Instantiate(healthOrb, this.gameObject.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
 				//}
 			}
+
+			if (stats.isDead && !hasNotifiedPlayerOfDeath) {
+				hasNotifiedPlayerOfDeath = true;
+				player.GetComponent<PlayerAttacking>().enemyHasDied(this.gameObject);
+			}
+
 			if (stats.isDead && Time.time - deathTime > 5) {
 				this.transform.root.Translate (new Vector3(0,-0.1f,0) * Time.deltaTime);
 			}
@@ -45,6 +55,10 @@ public class MonsterHealth : MonoBehaviour {
 				DestroyObject (this.gameObject);
 			}
 		}
+	}
+
+	public bool isDead() {
+		return stats.isDead;
 	}
 
 	public void TakeDamage(float damage) {
