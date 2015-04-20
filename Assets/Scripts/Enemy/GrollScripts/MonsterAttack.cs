@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class MonsterAttack : MonoBehaviour {
@@ -8,6 +8,8 @@ public class MonsterAttack : MonoBehaviour {
 	NavMeshAgent nav;
 	MonsterStats stats;
 	public bool isAttacking;
+	public AudioClip monsterClaw;
+	AudioSource monsterAudio;
 
 	PlayerHealth playerHealth;
 
@@ -18,6 +20,7 @@ public class MonsterAttack : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		playerHealth = player.GetComponent<PlayerHealth>();
 		anim = GetComponent<Animator> ();
+		monsterAudio = GetComponent<AudioSource> ();
 		rigid = GetComponent<Rigidbody> ();
 		nav = GetComponent<NavMeshAgent> ();
 		stats = GetComponent<MonsterStats> ();
@@ -31,6 +34,7 @@ public class MonsterAttack : MonoBehaviour {
 	public void tryDealingDamage(){
 		if (isAttacking) {
 			playerHealth.TakeDamage(stats.monsterDamage);
+
 		}
 	}
 
@@ -50,7 +54,8 @@ public class MonsterAttack : MonoBehaviour {
 				anim.speed = stats.attackSpeed;
 				anim.SetTrigger ("attacking");
 				isAttacking = true;
-
+				monsterAudio.clip = monsterClaw;
+				monsterAudio.Play();
 				//if weapon hits player: player.takedamage
 			}
 			else isAttacking = false;

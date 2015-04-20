@@ -19,6 +19,10 @@ public class PlayerAttacking : MonoBehaviour {
 	public Text stats;
 	public RawImage StaffEnabled;
 	public RawImage SwordEnabled;
+	public AudioClip swordCast;
+	AudioSource attackAudio;
+
+	GameObject player;
 
 	static string EnemyTag = "Enemy";
 	static string BossTag = "Boss";
@@ -61,8 +65,10 @@ public class PlayerAttacking : MonoBehaviour {
 	int MageAttackLayerIndex = 2;
 	
 	void Awake () {
+		player = GameObject.FindGameObjectWithTag ("Player");
 		animator = GetComponent<Animator>();
 		enemyTargetList = new LinkedList<GameObject>();
+		attackAudio = GetComponent <AudioSource> ();
 	}
 
 	void Update () {
@@ -165,6 +171,8 @@ public class PlayerAttacking : MonoBehaviour {
 	//Attack Enumerators
 
 	IEnumerator StartMeleeAttack(int index) {
+		attackAudio.clip = swordCast;
+		attackAudio.Play ();
 		yield return null;
 		float attackTime = meleeAttackTime[index];
 		float animationTime = meleeAnimationTime[index];
@@ -182,6 +190,8 @@ public class PlayerAttacking : MonoBehaviour {
 	}
 
 	IEnumerator StartMageAttack(int index) {
+		player.GetComponent<PlayerMagic> ().TakeMagic (10);
+
 		yield return null;
 
 		animator.SetLayerWeight(MageAttackLayerIndex, 1);
