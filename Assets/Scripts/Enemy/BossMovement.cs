@@ -37,8 +37,9 @@ public class BossMovement : MonoBehaviour
 		flames = GameObject.FindGameObjectWithTag ("BossFlame").GetComponent <ParticleSystem>();
 		flames.Stop();
 		nav.SetDestination (player.transform.position);
-		nav.updatePosition = false;
-		nav.updateRotation = false;
+		nav.Stop ();
+		//nav.updatePosition = false;
+		//nav.updateRotation = false;
 		anim = GetComponent <Animator> ();
 		detected = anim.GetBool ("PlayerDetected");
 		inRange = anim.GetBool ("PlayerInRange");
@@ -62,11 +63,12 @@ public class BossMovement : MonoBehaviour
 			{
 				flaming = false;
 				flames.Stop ();
+				nav.Resume ();
 			}
 			else
 			{
-				nav.updateRotation = true;
-				nav.updatePosition = false;
+				//nav.updateRotation = true;
+				//nav.updatePosition = false;
 				//Check to deal damage to player
 				Vector3 targetDir = player.transform.position - this.transform.position;
 				Vector3 forward = this.transform.forward;
@@ -75,9 +77,9 @@ public class BossMovement : MonoBehaviour
 				if(angle.CompareTo(30) < 0 && distance2 < 5)
 				{
 					//Damage Player
-					BossStats.text = "FLAME DAMAGE";
+					//BossStats.text = "FLAME DAMAGE";
 				}
-				else BossStats.text = "No Flame Damage";
+				//else BossStats.text = "No Flame Damage";
 				return;
 			}
 		} else if (flameOnCooldown && Time.time > flameCooldown + lastFlame) //Check to put flame off cooldown
@@ -87,11 +89,11 @@ public class BossMovement : MonoBehaviour
 
 		if (distance < detection) {
 			detected = true;
-			//nav.Resume ();
+			nav.Resume ();
 			if (distance < attack)
 			{
-				nav.updatePosition = false;
-				nav.updateRotation = true;
+				//nav.updatePosition = false;
+				//nav.updateRotation = true;
 
 				inRange = true;
 				if(!flameOnCooldown)
@@ -102,22 +104,23 @@ public class BossMovement : MonoBehaviour
 					flameOnCooldown = true;
 					//Activate flame particles
 					flames.Play ();
+					nav.Stop ();
 				}
 
 			}
 			else {
-				nav.updatePosition = true;
-				nav.updateRotation = true;
+				//nav.updatePosition = true;
+				//nav.updateRotation = true;
 				//nav.Resume ();
 				inRange = false;
 			}
 		}
 		else {
-			//nav.Stop ();
+			nav.Stop ();
 			detected = false;
 			inRange = false;
-			nav.updatePosition = false;
-			nav.updateRotation = false;
+			//nav.updatePosition = false;
+			//nav.updateRotation = false;
 		}
 	
 		anim.SetBool ("PlayerDetected", detected);
