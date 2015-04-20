@@ -6,6 +6,7 @@ public class BossMovement : MonoBehaviour
 {
 	public Text BossStats; 
 	GameObject player;               // Reference to the player's position.
+	PlayerHealth playerHealth;
 	GameObject boss;
 	//PlayerHealth playerHealth;      // Reference to the player's health.
 	//EnemyHealth enemyHealth;        // Reference to this enemy's health.
@@ -31,7 +32,7 @@ public class BossMovement : MonoBehaviour
 		// Set up the references.
 		player = GameObject.FindGameObjectWithTag ("Player");
 		boss = GameObject.FindGameObjectWithTag ("Boss");
-		//playerHealth = player.GetComponent <PlayerHealth> ();
+		playerHealth = player.GetComponent <PlayerHealth> ();
 		//bossHealth = GetComponent <EnemyHealth> ();
 		nav = GetComponent <NavMeshAgent> ();
 		flames = GameObject.FindGameObjectWithTag ("BossFlame").GetComponent <ParticleSystem>();
@@ -78,6 +79,7 @@ public class BossMovement : MonoBehaviour
 				{
 					//Damage Player
 					//BossStats.text = "FLAME DAMAGE";
+					playerHealth.TakeDamage(30 * Time.deltaTime);
 				}
 				//else BossStats.text = "No Flame Damage";
 				return;
@@ -132,6 +134,7 @@ public class BossMovement : MonoBehaviour
 	{
 		if (col.tag == "Player" && anim.GetCurrentAnimatorStateInfo (0).IsName ("Attack")) {
 			//This is where you would tell the player to take damage
+			playerHealth.TakeDamage(10);
 		}
 	}
 
