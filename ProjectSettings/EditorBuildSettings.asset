@@ -13,5 +13,5 @@ EditorBuildSettings:
     path: Assets/_Scenes/Map.unity
   - enabled: 0
     path: Assets/_Scenes/Playground.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Credits.unity
