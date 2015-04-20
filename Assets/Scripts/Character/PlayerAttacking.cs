@@ -106,7 +106,9 @@ public class PlayerAttacking : MonoBehaviour {
 	public void OnTriggerEnter(Collider other) {
 		GameObject triggerObject = other.gameObject;
 		if (triggerObject.tag == EnemyTag || triggerObject.tag == BossTag) {
-			enemyTargetList.AddLast(other.gameObject);
+			if (!triggerObject.GetComponent<MonsterHealth>().isDead()) {
+				enemyTargetList.AddLast(other.gameObject);
+			}
 		}
 	}
 
@@ -114,6 +116,19 @@ public class PlayerAttacking : MonoBehaviour {
 		GameObject triggerObject = other.gameObject;
 		if (triggerObject.tag == EnemyTag || triggerObject.tag == BossTag) {
 			enemyTargetList.Remove(other.gameObject);
+		}
+	}
+
+	public void enemyHasDied(GameObject enemy) {
+		Debug.Log("before");
+		foreach (GameObject enemy2 in enemyTargetList) {
+			Debug.Log(enemy2);
+		}
+
+		enemyTargetList.Remove(enemy);
+		Debug.Log("after");
+		foreach (GameObject enemy2 in enemyTargetList) {
+			Debug.Log(enemy2);
 		}
 	}
 
