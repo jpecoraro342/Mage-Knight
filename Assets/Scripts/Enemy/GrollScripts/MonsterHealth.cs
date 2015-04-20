@@ -56,6 +56,7 @@ public class MonsterHealth : MonoBehaviour {
 	}
 
 	public void TakeDamage(float damage) {
+		Debug.Log ("Taking " + damage + " Damage!");
 		stats.currentHealth -= damage;
 	}
 }

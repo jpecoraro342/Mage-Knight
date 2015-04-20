@@ -21,4 +21,7 @@ public class LoadOnClick : MonoBehaviour
 			credits.enabled = false;
 		}
 	}
+	public void quit(){
+		Application.Quit ();
+	}
 }
