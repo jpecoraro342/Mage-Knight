@@ -8,6 +8,7 @@ public class MonsterHealth : MonoBehaviour {
 	MonsterStats stats;
 	AudioSource monsterAudio;
 	public AudioClip monsterDeath;
+	public AudioClip monsterPain;
 	public Transform healthOrb;
 	private float deathTime;
 
@@ -48,6 +49,7 @@ public class MonsterHealth : MonoBehaviour {
 
 	public void TakeDamage(float damage) {
 		stats.currentHealth -= damage;
+		monsterAudio.clip = monsterPain;
 		monsterAudio.Play ();
 	}
 }

@@ -8,6 +8,8 @@ public class MonsterAttack : MonoBehaviour {
 	NavMeshAgent nav;
 	MonsterStats stats;
 	public bool isAttacking;
+	public AudioClip monsterClaw;
+	AudioSource monsterAudio;
 
 	float atkTime = 0f;
 	// Use this for initialization
@@ -15,6 +17,7 @@ public class MonsterAttack : MonoBehaviour {
 		isAttacking = false;
 		player = GameObject.FindGameObjectWithTag ("Player");
 		anim = GetComponent<Animator> ();
+		monsterAudio = GetComponent<AudioSource> ();
 		rigid = GetComponent<Rigidbody> ();
 		nav = GetComponent<NavMeshAgent> ();
 		stats = GetComponent<MonsterStats> ();
@@ -47,7 +50,8 @@ public class MonsterAttack : MonoBehaviour {
 				anim.speed = stats.attackSpeed;
 				anim.SetTrigger ("attacking");
 				isAttacking = true;
-
+				monsterAudio.clip = monsterClaw;
+				monsterAudio.Play();
 				//if weapon hits player: player.takedamage
 			}
 			else isAttacking = false;

@@ -94,8 +94,10 @@ public class PlayerHealth : MonoBehaviour
 		if (currentHealth < startingHealth) {
 			if (currentHealth + health >= startingHealth) {
 				currentHealth = startingHealth;
+				healthSlider.value = currentHealth;
 			} else {
 				currentHealth += health;
+				healthSlider.value = currentHealth;
 			}
 		}
 	}
