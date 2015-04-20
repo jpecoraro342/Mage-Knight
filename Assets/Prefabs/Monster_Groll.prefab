@@ -2846,7 +2846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
-  currentHealth: 0
+  currentHealth: 50
   monsterDamage: 10
   isDead: 0
   attackSpeed: 1
@@ -2878,7 +2878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ff627bd099f574fa6bb6927ea4bf9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAttacking: 0
 --- !u!114 &11490334
 MonoBehaviour:
   m_ObjectHideFlags: 1

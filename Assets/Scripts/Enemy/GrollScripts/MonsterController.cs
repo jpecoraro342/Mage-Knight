@@ -63,8 +63,10 @@ public class MonsterController : MonoBehaviour {
 	}
 
 	void pursuePlayer(){
-		navmeshAgent.destination = player.transform.position;
-		checkJump ();
+		if (navmeshAgent != null) {
+			navmeshAgent.destination = player.transform.position;
+			checkJump ();
+		}
 	}
 
 	bool canSeePlayer(){
