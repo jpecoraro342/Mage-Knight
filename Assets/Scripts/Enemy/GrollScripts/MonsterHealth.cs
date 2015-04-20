@@ -6,6 +6,9 @@ public class MonsterHealth : MonoBehaviour {
 	Animator animator;
 	NavMeshAgent agent;
 	MonsterStats stats;
+	AudioSource monsterAudio;
+	public AudioClip monsterDeath;
+	public AudioClip monsterPain;
 	public Transform healthOrb;
 	private float deathTime;
 
@@ -21,12 +24,15 @@ public class MonsterHealth : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		animator = GetComponent<Animator> ();
 		agent = GetComponent<NavMeshAgent> ();
+		monsterAudio = GetComponent <AudioSource> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (stats.currentHealth <= 0) {
 			agent.enabled = false;
+			monsterAudio.clip = monsterDeath;
+			monsterAudio.Play();
 			if (!stats.isDead){
 				animator.SetTrigger("dead");
 				stats.isDead = true;
@@ -58,5 +64,7 @@ public class MonsterHealth : MonoBehaviour {
 	public void TakeDamage(float damage) {
 		Debug.Log ("Taking " + damage + " Damage!");
 		stats.currentHealth -= damage;
+		monsterAudio.clip = monsterPain;
+		monsterAudio.Play ();
 	}
 }
