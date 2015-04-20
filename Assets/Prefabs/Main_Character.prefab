@@ -819,6 +819,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &142438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 435788}
+  - 136: {fileID: 13671572}
+  m_Layer: 0
+  m_Name: PlayerHitBox1
+  m_TagString: PlayerHitBox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &144006
 GameObject:
   m_ObjectHideFlags: 1
@@ -1602,8 +1618,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101690}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: 0, y: .0170000009, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.0699997, y: .5, z: -6.19999981}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 401666}
@@ -1614,8 +1630,21 @@ Transform:
   - {fileID: 401648}
   - {fileID: 401690}
   - {fileID: 407678}
+  - {fileID: 435788}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &435788
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 435728}
+  m_RootOrder: 8
 --- !u!4 &446634
 Transform:
   m_ObjectHideFlags: 1
@@ -1939,7 +1968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21cfe66002872447ab0a62e670e74999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 18
+  damage: 80
   damageMultiplier: 1
   damageObject: {fileID: 107296, guid: 391d0bed30601481785513795a5f2c3f, type: 2}
 --- !u!114 &11457314
@@ -1953,7 +1982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21cfe66002872447ab0a62e670e74999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 22
+  damage: 80
   damageMultiplier: 1
   damageObject: {fileID: 186518, guid: 6c282d697d92f458ca11f0c4493aebf0, type: 2}
 --- !u!114 &11460070
@@ -1967,7 +1996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21cfe66002872447ab0a62e670e74999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 22
+  damage: 80
   damageMultiplier: 1
   damageObject: {fileID: 197712, guid: 71d5447b2049a47278b255298df210ae, type: 2}
 --- !u!114 &11465788
@@ -1976,7 +2005,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101690}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d456015863a6f740a6b1213f0021548, type: 3}
   m_Name: 
@@ -2070,6 +2099,19 @@ CapsuleCollider:
   m_Height: 7
   m_Direction: 1
   m_Center: {x: 0, y: -4, z: -1.11758762e-08}
+--- !u!136 &13671572
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: .379999995
+  m_Height: 2.13000011
+  m_Direction: 1
+  m_Center: {x: .100000001, y: .930000007, z: 0}
 --- !u!136 &13690092
 CapsuleCollider:
   m_ObjectHideFlags: 1

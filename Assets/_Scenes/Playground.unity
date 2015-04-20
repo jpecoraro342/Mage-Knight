@@ -1734,6 +1734,7 @@ MonoBehaviour:
   speed: 10
   maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!195 &391020117
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4438,6 +4439,7 @@ MonoBehaviour:
   speed: 10
   maxHP: 50
   currentHP: 0
+  jumpForce: 0
 --- !u!54 &1032227788
 Rigidbody:
   m_ObjectHideFlags: 0

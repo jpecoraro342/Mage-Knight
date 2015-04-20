@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SwordAttack : MonoBehaviour {
 
-	public float damage = 20;
+	public float damage = 80;
 	public float damageMultiplier = 1;
 
 	public GameObject damageObject;
