@@ -11,6 +11,9 @@ TagManager:
   - Fire
   - MonsterWeapon
   - PlayerHitBox
+  - Barrier1
+  - Barrier2
+  - Barrier3
   layers:
   - Default
   - TransparentFX

@@ -1564,7 +1564,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197952}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: 19.9599991, y: 0, z: 23.6200008}
+  m_LocalPosition: {x: 48.1743202, y: 5.80987024, z: 143.172318}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 431598}
@@ -2845,14 +2845,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcb77f6c276e5345b0d06cd06cd69b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   currentHealth: 0
   monsterDamage: 10
   isDead: 0
-  attackSpeed: .00100000005
+  attackSpeed: 1
   speed: 10
-  visionCone: 0
-  visionRadius: 0
+  visionCone: 120
+  visionRadius: 20
   seenPlayer: 0
   timeSinceSeenPlayer: 0
 --- !u!114 &11447520
