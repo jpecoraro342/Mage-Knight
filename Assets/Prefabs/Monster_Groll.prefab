@@ -1354,6 +1354,7 @@ GameObject:
   - 114: {fileID: 11433992}
   - 114: {fileID: 11473238}
   - 114: {fileID: 11486520}
+  - 114: {fileID: 11442748}
   m_Layer: 0
   m_Name: Monster_Groll
   m_TagString: Enemy
@@ -1565,7 +1566,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197952}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: -3.03999996, y: 7.23000002, z: -22.6299992}
+  m_LocalPosition: {x: -1.66888618, y: 7.22706509, z: -7.04690742}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 431598}
@@ -2846,7 +2847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcb77f6c276e5345b0d06cd06cd69b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 100
   currentHealth: 0
   monsterDamage: 10
   isDead: 0
@@ -2856,6 +2857,18 @@ MonoBehaviour:
   visionRadius: 20
   seenPlayer: 0
   timeSinceSeenPlayer: 0
+--- !u!114 &11442748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15fa546e82f64f01ad9ec88f9c193cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttacking: 0
 --- !u!114 &11447520
 MonoBehaviour:
   m_ObjectHideFlags: 1
