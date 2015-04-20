@@ -13,14 +13,15 @@ public class PlayerMagic : MonoBehaviour
 	//public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
 	//public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
 	
-	
+	private float timestamp = 0f;
 	Animator anim;                                              // Reference to the Animator component.
 	AudioSource playerAudio;                                    // Reference to the AudioSource component.
 	PlayerMovement playerMovement;                              // Reference to the player's movement.
 	//	PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
 	bool isExpended;                                                // Whether the player is dead.
 	bool spellCasted;                                               // True when the player gets damaged.
-	
+
+	public AudioClip magicCasted;
 	
 	void Awake ()
 	{
@@ -42,6 +43,15 @@ public class PlayerMagic : MonoBehaviour
 
 			TakeMagic (10);
 
+		}
+		magicSlider.value = currentMagic;
+		if (currentMagic < 100) {
+
+			timestamp += Time.deltaTime;
+			if(timestamp > 5){
+				timestamp = 0;
+				currentMagic++;
+			}
 		}
 		// If the player has just been damaged...
 		if(spellCasted)
@@ -79,6 +89,7 @@ public class PlayerMagic : MonoBehaviour
 		magicSlider.value = currentMagic;
 		
 		// Play the hurt sound effect.
+		playerAudio.clip = magicCasted;
 		playerAudio.Play ();
 		
 		// If the player has lost all it's health and the death flag hasn't been set yet...
