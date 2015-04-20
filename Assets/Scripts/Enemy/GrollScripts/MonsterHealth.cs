@@ -31,9 +31,9 @@ public class MonsterHealth : MonoBehaviour {
 				animator.SetTrigger("dead");
 				stats.isDead = true;
 				deathTime = Time.time;
-				//if (Random.value < 0.75){
+				if (Random.value < 0.5f){
 				Instantiate(healthOrb, this.gameObject.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
-				//}
+				}
 			}
 
 			if (stats.isDead && !hasNotifiedPlayerOfDeath) {

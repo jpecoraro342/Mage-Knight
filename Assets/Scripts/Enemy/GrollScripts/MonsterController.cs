@@ -38,6 +38,7 @@ public class MonsterController : MonoBehaviour {
 
 	}
 	void Start () {
+
 		navmeshAgent.enabled = true;
 		//navmeshAgent.destination = player.transform.position;
 		navmeshAgent.autoTraverseOffMeshLink = false;

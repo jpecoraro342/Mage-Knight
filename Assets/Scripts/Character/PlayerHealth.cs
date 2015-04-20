@@ -54,6 +54,7 @@ public class PlayerHealth : MonoBehaviour
 		// Reset the damaged flag.
 		damaged = false;
 		healthText.text = currentHealth + "/" + startingHealth;
+		healthSlider.value = currentHealth;
 	}
 
 
@@ -72,7 +73,7 @@ public class PlayerHealth : MonoBehaviour
 			}
 		}
 		// Set the health bar's value to the current health.
-		healthSlider.value = currentHealth;
+		//healthSlider.value = currentHealth;
 		
 		// Play the hurt sound effect.
 		//playerAudio.Play ();

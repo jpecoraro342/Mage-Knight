@@ -36,7 +36,7 @@ public class MonsterAttack : MonoBehaviour {
 
 
 	void OnTriggerEnter(Collider other){
-		if (other.gameObject.tag == "PlayerHitBox") {
+		if (other.gameObject.tag == "PlayerHitBox" && !stats.isDead) {
 			playerHealth.TakeDamage(stats.monsterDamage);
 		}
 	}
