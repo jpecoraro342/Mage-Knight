@@ -48,7 +48,7 @@ public class PlayerMagic : MonoBehaviour
 		if (currentMagic < 100) {
 
 			timestamp += Time.deltaTime;
-			if(timestamp > 1){
+			if(timestamp > .5f){
 				timestamp = 0;
 				currentMagic++;
 			}

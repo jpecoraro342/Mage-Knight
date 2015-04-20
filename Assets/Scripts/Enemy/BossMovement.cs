@@ -38,9 +38,10 @@ public class BossMovement : MonoBehaviour
 		flames = GameObject.FindGameObjectWithTag ("BossFlame").GetComponent <ParticleSystem>();
 		flames.Stop();
 		nav.SetDestination (player.transform.position);
-		nav.Stop ();
+		//nav.Stop ();
 		//nav.updatePosition = false;
 		//nav.updateRotation = false;
+		nav.enabled = true;
 		anim = GetComponent <Animator> ();
 		detected = anim.GetBool ("PlayerDetected");
 		inRange = anim.GetBool ("PlayerInRange");
@@ -57,7 +58,6 @@ public class BossMovement : MonoBehaviour
 
 		//detected = anim.GetBool ("PlayerDetected");
 		//inRange = anim.GetBool ("PlayerInRange");
-		nav.SetDestination (player.transform.position);
 		//check to disable flaming
 		if (flaming) {
 			if (Time.time > flameDuration + lastFlame)
@@ -65,6 +65,8 @@ public class BossMovement : MonoBehaviour
 				flaming = false;
 				flames.Stop ();
 				nav.Resume ();
+				nav.SetDestination (player.transform.position);
+
 			}
 			else
 			{
@@ -92,6 +94,8 @@ public class BossMovement : MonoBehaviour
 		if (distance < detection) {
 			detected = true;
 			nav.Resume ();
+			nav.SetDestination (player.transform.position);
+
 			if (distance < attack)
 			{
 				//nav.updatePosition = false;

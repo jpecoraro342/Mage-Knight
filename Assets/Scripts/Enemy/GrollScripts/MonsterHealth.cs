@@ -33,8 +33,10 @@ public class MonsterHealth : MonoBehaviour {
 			agent.enabled = false;
 
 			if (!stats.isDead){
-				monsterAudio.clip = monsterDeath;
-				monsterAudio.Play();
+				if (monsterAudio != null) {
+					monsterAudio.clip = monsterDeath;
+					monsterAudio.Play();
+				}
 
 				animator.SetTrigger("dead");
 				stats.isDead = true;
@@ -66,7 +68,9 @@ public class MonsterHealth : MonoBehaviour {
 	public void TakeDamage(float damage) {
 		Debug.Log ("Taking " + damage + " Damage!");
 		stats.currentHealth -= damage;
-		monsterAudio.clip = monsterPain;
-		monsterAudio.Play ();
+		if (monsterAudio != null) {
+			monsterAudio.clip = monsterPain;
+			monsterAudio.Play ();
+		}
 	}
 }
